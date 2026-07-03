@@ -22,7 +22,8 @@ exists, there is no claimed connection to Yang-Mills renormalization.
   * `CKAlgebra R Tree := MvPolynomial Tree R`;
   * forest vertex counts from an explicit `Tree -> Nat`;
   * a predicate for homogeneous vertex degree.
-* `ConnesKreimer.Interfaces` is the stable import surface for future consumers.
+* `Interfaces.lean` is the stable import surface for future consumers; it
+  re-exports `ConnesKreimer.Interfaces`.
 
 ## Honesty policy
 

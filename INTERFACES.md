@@ -1,6 +1,12 @@
 # Public Interfaces
 
-Import surface:
+Import surface for the mother repository:
+
+```lean
+import Interfaces
+```
+
+Internal implementation import:
 
 ```lean
 import ConnesKreimer.Interfaces

@@ -90,9 +90,11 @@ git push -u origin frontier/M1
 6. `Submodule` estructura: los campos `add_mem'`/`smul_mem'` toman
    argumentos implícitos con perfiles que han cambiado alguna vez; si
    protesta, envolver en lambdas explícitas `fun {p q} hp hq => hp.add hq`.
-7. Frontier: `import Mathlib` global + `TensorProduct.map` +
-   `⊗ₜ[R]` — solo compila en la rama frontier con cache completa;
-   deliberado.
+7. Frontier: el blanket `import Mathlib` fue reemplazado por imports
+   concretos (`Grafting`, `Interfaces`, `RingTheory.TensorProduct.Basic`) y
+   dos instancias locales para el tensor algebraico CK⊗CK. Verificado con
+   `lake env lean ConnesKreimer/Frontier/CutCoproduct.lean`; quedan solo los
+   tres `sorry` de frontera esperados.
 
 ## Qué gana el madre con este empuje
 

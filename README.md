@@ -23,7 +23,7 @@ exists, there is no claimed connection to Yang-Mills renormalization.
   * forest vertex counts from an explicit `Tree -> Nat`;
   * a predicate for homogeneous vertex degree.
 * `Interfaces.lean` is the stable import surface for future consumers; it
-  re-exports `ConnesKreimer.Interfaces`.
+  re-exports the closed M0 interface and explicit frontier hypotheses.
 
 ## Honesty policy
 

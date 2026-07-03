@@ -1,4 +1,4 @@
-import ConnesKreimer.Interfaces
+import ConnesKreimer.Grafting
 
 /-!
 # contrato con el madre

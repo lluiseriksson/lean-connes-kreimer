@@ -1,0 +1,17 @@
+name: Lean
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@v1
+        with:
+          build: true
+      - name: Check no unfinished Lean declarations
+        run: |
+          ! grep -R -E "\b(sorry|axiom)\b" -n ConnesKreimer *.lean

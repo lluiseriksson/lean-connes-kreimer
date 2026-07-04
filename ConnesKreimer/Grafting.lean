@@ -82,6 +82,18 @@ theorem vertices_graft_pos (f : ConnesKreimer.Forest P.Tree) :
   rw [P.vertices_graft f]
   exact Nat.succ_pos _
 
+/-- A graft has exactly one vertex precisely when the source forest has
+vertex count zero. -/
+theorem vertices_graft_eq_one_iff_vertexCount_zero
+    (f : ConnesKreimer.Forest P.Tree) :
+    P.vertices (P.graft f) = 1 ↔ Forest.vertexCount P.vertices f = 0 := by
+  rw [P.vertices_graft f]
+  constructor
+  · intro h
+    exact Nat.succ.inj (by simpa [Nat.succ_eq_add_one] using h)
+  · intro h
+    rw [h]
+
 /-- Grafting is degree-injective on vertex counts: forests of different
 vertex counts graft to trees of different vertex counts. -/
 theorem vertices_graft_injective_on_count

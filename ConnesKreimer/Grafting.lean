@@ -69,6 +69,13 @@ theorem vertices_graft_zero :
   rw [P.vertices_graft (0 : ConnesKreimer.Forest P.Tree),
     Forest.vertexCount_zero, zero_add]
 
+@[simp]
+theorem vertices_graft_single_one (t : P.Tree) :
+    P.vertices (P.graft (Finsupp.single t 1 : ConnesKreimer.Forest P.Tree))
+      = P.vertices t + 1 := by
+  rw [P.vertices_graft (Finsupp.single t 1 : ConnesKreimer.Forest P.Tree),
+    Forest.vertexCount_single_one]
+
 /-- The graft of a forest never has zero vertices: the new root counts. -/
 theorem vertices_graft_pos (f : ConnesKreimer.Forest P.Tree) :
     0 < P.vertices (P.graft f) := by

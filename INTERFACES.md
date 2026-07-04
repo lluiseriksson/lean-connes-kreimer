@@ -47,6 +47,9 @@ digest.
 * `ConnesKreimer.isHomogeneousVertexDegree_one`
 * `ConnesKreimer.homogeneousSubmodule`
 * `ConnesKreimer.mem_homogeneousSubmodule`
+* `ConnesKreimer.treeGenerator_mem_homogeneousSubmodule`
+* `ConnesKreimer.forestMonomial_mem_homogeneousSubmodule`
+* `ConnesKreimer.one_mem_homogeneousSubmodule`
 * `ConnesKreimer.homogeneousSubmodule_mul_mem`
 
 ### Providers

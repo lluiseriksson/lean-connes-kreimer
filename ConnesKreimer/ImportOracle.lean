@@ -29,6 +29,19 @@ example (vertices : Tree -> Nat) (f : Forest Tree) :
       (forestMonomial R f) :=
   isHomogeneousVertexDegree_forestMonomial (R := R) vertices f
 
+example (vertices : Tree -> Nat) (t : Tree) :
+    treeGenerator R t ∈ homogeneousSubmodule vertices R (vertices t) :=
+  treeGenerator_mem_homogeneousSubmodule (R := R) vertices t
+
+example (vertices : Tree -> Nat) (f : Forest Tree) :
+    forestMonomial R f ∈ homogeneousSubmodule vertices R
+      (Forest.vertexCount vertices f) :=
+  forestMonomial_mem_homogeneousSubmodule (R := R) vertices f
+
+example (vertices : Tree -> Nat) :
+    (1 : CKAlgebra R Tree) ∈ homogeneousSubmodule vertices R 0 :=
+  one_mem_homogeneousSubmodule (R := R) vertices
+
 example (P : GraftingProvider.{u}) [DecidableEq P.Tree] (f : Forest P.Tree) :
     IsHomogeneousVertexDegree (R := R) P.vertices
       (Forest.vertexCount P.vertices f + 1) (P.graftGenerator R f) :=

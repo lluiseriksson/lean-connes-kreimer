@@ -64,6 +64,7 @@ digest.
 * `ConnesKreimer.GraftingProvider.isHomogeneousVertexDegree_graftGenerator_zero`
 * `ConnesKreimer.GraftingProvider.graftGenerator_zero_mem_homogeneousSubmodule`
 * `ConnesKreimer.GraftingProvider.vertices_graft_zero`
+* `ConnesKreimer.GraftingProvider.vertices_graft_single`
 * `ConnesKreimer.GraftingProvider.vertices_graft_single_one`
 * `ConnesKreimer.GraftingProvider.vertices_graft_pos`
 * `ConnesKreimer.GraftingProvider.vertices_graft_eq_one_iff_vertexCount_zero`

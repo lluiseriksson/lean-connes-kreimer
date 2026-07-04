@@ -46,6 +46,12 @@ def forestMonomial (R : Type v) {Tree : Type u} [CommSemiring R] (f : Forest Tre
     CKAlgebra R Tree :=
   MvPolynomial.monomial f 1
 
+@[simp]
+theorem treeGenerator_eq_forestMonomial_single_one {Tree : Type u} {R : Type v}
+    [CommSemiring R] (t : Tree) :
+    treeGenerator R t = forestMonomial R (Finsupp.single t 1 : Forest Tree) := by
+  rfl
+
 /-- Vertex count of a forest, once a vertex count on trees is supplied. -/
 def Forest.vertexCount {Tree : Type u} (vertices : Tree -> Nat) (f : Forest Tree) : Nat :=
   f.sum fun t multiplicity => multiplicity * vertices t

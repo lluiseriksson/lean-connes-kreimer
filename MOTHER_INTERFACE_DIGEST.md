@@ -3,7 +3,7 @@
 Last updated: 2026-07-04.
 
 Base public HEAD before this digest refresh:
-`de8cbbce607eea9f70ac47c50c76fd7cea1dde53`.
+`36c9d509a2965b7ea5a3d83eff2de62606b9d972`.
 
 ## Import
 
@@ -61,6 +61,7 @@ Algebra and forests:
 * `ConnesKreimer.CKAlgebra`
 * `ConnesKreimer.treeGenerator`
 * `ConnesKreimer.forestMonomial`
+* `ConnesKreimer.treeGenerator_eq_forestMonomial_single_one`
 * `ConnesKreimer.Forest.vertexCount`
 * `ConnesKreimer.IsHomogeneousVertexDegree`
 
@@ -124,6 +125,8 @@ Today the useful payload is bookkeeping infrastructure: forests as polynomial
 monomials, vertex grading, homogeneous components, and the provider-level
 grafting degree shift, including the closed empty-forest value
 `ConnesKreimer.GraftingProvider.vertices_graft_zero` and the singleton graft
-count `ConnesKreimer.GraftingProvider.vertices_graft_single_one`.  There is no
-coproduct on `main`, no bialgebra, no Hopf algebra, and no Yang-Mills
-renormalization claim.
+count `ConnesKreimer.GraftingProvider.vertices_graft_single_one`.  The bridge
+lemma `ConnesKreimer.treeGenerator_eq_forestMonomial_single_one` lets a
+consumer rewrite a named tree generator as the corresponding singleton forest
+monomial.  There is no coproduct on `main`, no bialgebra, no Hopf algebra, and
+no Yang-Mills renormalization claim.

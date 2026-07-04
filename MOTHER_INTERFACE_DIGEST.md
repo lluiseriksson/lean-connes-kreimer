@@ -3,7 +3,7 @@
 Last updated: 2026-07-04.
 
 Base public HEAD before this digest refresh:
-`36c9d509a2965b7ea5a3d83eff2de62606b9d972`.
+`2e32a07e927c711b02cf73ba5be6d4d02ad17447`.
 
 ## Import
 
@@ -102,6 +102,7 @@ Closed grafting lemmas:
 * `ConnesKreimer.GraftingProvider.isHomogeneousVertexDegree_graftGenerator`
 * `ConnesKreimer.GraftingProvider.graftGenerator_mem_homogeneousSubmodule`
 * `ConnesKreimer.GraftingProvider.isHomogeneousVertexDegree_graftGenerator_zero`
+* `ConnesKreimer.GraftingProvider.graftGenerator_zero_mem_homogeneousSubmodule`
 * `ConnesKreimer.GraftingProvider.vertices_graft_zero`
 * `ConnesKreimer.GraftingProvider.vertices_graft_single_one`
 * `ConnesKreimer.GraftingProvider.vertices_graft_pos`
@@ -133,8 +134,11 @@ but that branch is not a consumable mainline interface.
 Today the useful payload is bookkeeping infrastructure: forests as polynomial
 monomials, vertex grading, homogeneous components with direct membership
 lemmas for generators, monomials, the unit, and provider-level graft
-generators, plus the provider-level grafting degree shift, including the
-closed empty-forest value
+generators, including the degree-1 homogeneous-submodule membership of the
+empty graft
+`ConnesKreimer.GraftingProvider.graftGenerator_zero_mem_homogeneousSubmodule`,
+plus the provider-level grafting degree shift, including the closed
+empty-forest value
 `ConnesKreimer.GraftingProvider.vertices_graft_zero` and the singleton graft
 count `ConnesKreimer.GraftingProvider.vertices_graft_single_one`.  The
 criterion

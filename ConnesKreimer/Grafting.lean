@@ -70,6 +70,11 @@ theorem isHomogeneousVertexDegree_graftGenerator_zero [DecidableEq P.Tree] :
   rw [Forest.vertexCount_zero, zero_add] at h
   exact h
 
+theorem graftGenerator_zero_mem_homogeneousSubmodule [DecidableEq P.Tree] :
+    P.graftGenerator R (0 : ConnesKreimer.Forest P.Tree)
+      ∈ homogeneousSubmodule P.vertices R 1 :=
+  P.isHomogeneousVertexDegree_graftGenerator_zero (R := R)
+
 @[simp]
 theorem vertices_graft_zero :
     P.vertices (P.graft (0 : ConnesKreimer.Forest P.Tree)) = 1 := by

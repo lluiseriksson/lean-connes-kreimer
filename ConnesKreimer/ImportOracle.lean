@@ -52,6 +52,16 @@ example (P : GraftingProvider.{u}) [DecidableEq P.Tree] (f : Forest P.Tree) :
       (Forest.vertexCount P.vertices f + 1) :=
   P.graftGenerator_mem_homogeneousSubmodule (R := R) f
 
+example (P : GraftingProvider.{u}) [DecidableEq P.Tree] (t : P.Tree) (m : Nat) :
+    IsHomogeneousVertexDegree (R := R) P.vertices (m * P.vertices t + 1)
+      (P.graftGenerator R (Finsupp.single t m : Forest P.Tree)) :=
+  P.isHomogeneousVertexDegree_graftGenerator_single (R := R) t m
+
+example (P : GraftingProvider.{u}) [DecidableEq P.Tree] (t : P.Tree) (m : Nat) :
+    P.graftGenerator R (Finsupp.single t m : Forest P.Tree)
+      ∈ homogeneousSubmodule P.vertices R (m * P.vertices t + 1) :=
+  P.graftGenerator_single_mem_homogeneousSubmodule (R := R) t m
+
 example (P : GraftingProvider.{u}) [DecidableEq P.Tree] :
     P.graftGenerator R (0 : Forest P.Tree) ∈ homogeneousSubmodule P.vertices R 1 :=
   P.graftGenerator_zero_mem_homogeneousSubmodule (R := R)

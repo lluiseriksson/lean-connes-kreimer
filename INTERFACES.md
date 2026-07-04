@@ -6,16 +6,23 @@ Import surface for the mother repository:
 import Interfaces
 ```
 
-Internal implementation import:
+Internal implementation imports include:
 
 ```lean
 import ConnesKreimer.Interfaces
+import ConnesKreimer.Grading
+import ConnesKreimer.Grafting
 ```
 
 This is the file a future consumer should import.  There is currently no direct
 THE-ERIKSSON-PROGRAMME import.
 
+See `MOTHER_INTERFACE_DIGEST.md` for the current mother-facing consumption
+digest.
+
 ## Stable names
+
+### Core M0
 
 * `ConnesKreimer.Forest (Tree : Type u) : Type u`
 * `ConnesKreimer.CKAlgebra (R : Type v) (Tree : Type u) [CommSemiring R]`
@@ -23,9 +30,37 @@ THE-ERIKSSON-PROGRAMME import.
 * `ConnesKreimer.forestMonomial`
 * `ConnesKreimer.Forest.vertexCount`
 * `ConnesKreimer.IsHomogeneousVertexDegree`
+
+### Grading
+
+* `ConnesKreimer.Forest.vertexCount_zero`
+* `ConnesKreimer.Forest.vertexCount_add`
+* `ConnesKreimer.Forest.vertexCount_single`
+* `ConnesKreimer.isHomogeneousVertexDegree_zero`
+* `ConnesKreimer.IsHomogeneousVertexDegree.add`
+* `ConnesKreimer.IsHomogeneousVertexDegree.smul`
+* `ConnesKreimer.IsHomogeneousVertexDegree.mul`
+* `ConnesKreimer.isHomogeneousVertexDegree_treeGenerator`
+* `ConnesKreimer.isHomogeneousVertexDegree_forestMonomial`
+* `ConnesKreimer.isHomogeneousVertexDegree_one`
+* `ConnesKreimer.homogeneousSubmodule`
+* `ConnesKreimer.mem_homogeneousSubmodule`
+* `ConnesKreimer.homogeneousSubmodule_mul_mem`
+
+### Providers
+
 * `ConnesKreimer.RootedTreeProvider`
 * `ConnesKreimer.RootedTreeProvider.Algebra`
 * `ConnesKreimer.RootedTreeProvider.Forest`
+* `ConnesKreimer.GraftingProvider`
+* `ConnesKreimer.GraftingProvider.graftGenerator`
+* `ConnesKreimer.GraftingProvider.isHomogeneousVertexDegree_graftGenerator`
+* `ConnesKreimer.GraftingProvider.isHomogeneousVertexDegree_graftGenerator_zero`
+* `ConnesKreimer.GraftingProvider.vertices_graft_pos`
+* `ConnesKreimer.GraftingProvider.vertices_graft_injective_on_count`
+
+### Explicit frontier hypotheses
+
 * `ConnesKreimer.HasAdmissibleCutCoalgebra`
 * `ConnesKreimer.HasConnesKreimerBialgebra`
 * `ConnesKreimer.HasConnesKreimerHopfAlgebra`

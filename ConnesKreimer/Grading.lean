@@ -42,6 +42,11 @@ theorem vertexCount_single (vertices : Tree -> Nat) (t : Tree) (m : Nat) :
   unfold Forest.vertexCount
   exact Finsupp.sum_single_index (zero_mul (vertices t))
 
+@[simp]
+theorem vertexCount_single_one (vertices : Tree -> Nat) (t : Tree) :
+    Forest.vertexCount vertices (Finsupp.single t 1) = vertices t := by
+  rw [Forest.vertexCount_single, one_mul]
+
 end Forest
 
 namespace IsHomogeneousVertexDegree

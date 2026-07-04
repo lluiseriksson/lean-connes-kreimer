@@ -36,6 +36,7 @@ digest.
 * `ConnesKreimer.Forest.vertexCount_zero`
 * `ConnesKreimer.Forest.vertexCount_add`
 * `ConnesKreimer.Forest.vertexCount_single`
+* `ConnesKreimer.Forest.vertexCount_single_one`
 * `ConnesKreimer.isHomogeneousVertexDegree_zero`
 * `ConnesKreimer.IsHomogeneousVertexDegree.add`
 * `ConnesKreimer.IsHomogeneousVertexDegree.smul`

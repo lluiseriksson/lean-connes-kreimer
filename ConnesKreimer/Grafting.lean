@@ -54,6 +54,13 @@ theorem isHomogeneousVertexDegree_graftGenerator
   rw [P.vertices_graft f] at h
   exact h
 
+theorem graftGenerator_mem_homogeneousSubmodule
+    [DecidableEq P.Tree]
+    (f : ConnesKreimer.Forest P.Tree) :
+    P.graftGenerator R f ∈ homogeneousSubmodule P.vertices R
+      (Forest.vertexCount P.vertices f + 1) :=
+  P.isHomogeneousVertexDegree_graftGenerator (R := R) f
+
 /-- Grafting the empty forest produces a one-vertex generator. -/
 theorem isHomogeneousVertexDegree_graftGenerator_zero [DecidableEq P.Tree] :
     IsHomogeneousVertexDegree (R := R) P.vertices 1

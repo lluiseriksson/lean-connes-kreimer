@@ -61,6 +61,7 @@ digest.
 * `ConnesKreimer.GraftingProvider.vertices_graft_zero`
 * `ConnesKreimer.GraftingProvider.vertices_graft_single_one`
 * `ConnesKreimer.GraftingProvider.vertices_graft_pos`
+* `ConnesKreimer.GraftingProvider.vertices_graft_eq_one_iff_vertexCount_zero`
 * `ConnesKreimer.GraftingProvider.vertices_graft_injective_on_count`
 
 ### Explicit frontier hypotheses

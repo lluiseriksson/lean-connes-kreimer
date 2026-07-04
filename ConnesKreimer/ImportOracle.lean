@@ -34,4 +34,8 @@ example (P : GraftingProvider.{u}) [DecidableEq P.Tree] (f : Forest P.Tree) :
       (Forest.vertexCount P.vertices f + 1) (P.graftGenerator R f) :=
   P.isHomogeneousVertexDegree_graftGenerator (R := R) f
 
+example (P : GraftingProvider.{u}) (f : Forest P.Tree) :
+    P.vertices (P.graft f) = 1 ↔ Forest.vertexCount P.vertices f = 0 :=
+  P.vertices_graft_eq_one_iff_vertexCount_zero f
+
 end ConnesKreimer

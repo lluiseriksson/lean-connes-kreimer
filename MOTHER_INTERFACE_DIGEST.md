@@ -2,7 +2,8 @@
 
 Last updated: 2026-07-04.
 
-Base public HEAD summarized here: `41a19ad77fde166f050365e62ba62f18eb80e4cc`.
+Base public HEAD before this digest refresh:
+`2407ea1342f5020152972984fc0dd3ca83987ddc`.
 
 ## Import
 
@@ -92,6 +93,7 @@ Closed grafting lemmas:
 * `ConnesKreimer.GraftingProvider.graftGenerator`
 * `ConnesKreimer.GraftingProvider.isHomogeneousVertexDegree_graftGenerator`
 * `ConnesKreimer.GraftingProvider.isHomogeneousVertexDegree_graftGenerator_zero`
+* `ConnesKreimer.GraftingProvider.vertices_graft_zero`
 * `ConnesKreimer.GraftingProvider.vertices_graft_pos`
 * `ConnesKreimer.GraftingProvider.vertices_graft_injective_on_count`
 
@@ -119,5 +121,7 @@ but that branch is not a consumable mainline interface.
 
 Today the useful payload is bookkeeping infrastructure: forests as polynomial
 monomials, vertex grading, homogeneous components, and the provider-level
-grafting degree shift.  There is no coproduct on `main`, no bialgebra, no Hopf
-algebra, and no Yang-Mills renormalization claim.
+grafting degree shift, including the closed empty-forest value
+`ConnesKreimer.GraftingProvider.vertices_graft_zero`.  There is no coproduct
+on `main`, no bialgebra, no Hopf algebra, and no Yang-Mills renormalization
+claim.

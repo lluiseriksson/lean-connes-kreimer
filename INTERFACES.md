@@ -57,6 +57,7 @@ digest.
 * `ConnesKreimer.GraftingProvider.graftGenerator`
 * `ConnesKreimer.GraftingProvider.isHomogeneousVertexDegree_graftGenerator`
 * `ConnesKreimer.GraftingProvider.isHomogeneousVertexDegree_graftGenerator_zero`
+* `ConnesKreimer.GraftingProvider.vertices_graft_zero`
 * `ConnesKreimer.GraftingProvider.vertices_graft_pos`
 * `ConnesKreimer.GraftingProvider.vertices_graft_injective_on_count`
 

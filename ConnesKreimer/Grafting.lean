@@ -63,6 +63,12 @@ theorem isHomogeneousVertexDegree_graftGenerator_zero [DecidableEq P.Tree] :
   rw [Forest.vertexCount_zero, zero_add] at h
   exact h
 
+@[simp]
+theorem vertices_graft_zero :
+    P.vertices (P.graft (0 : ConnesKreimer.Forest P.Tree)) = 1 := by
+  rw [P.vertices_graft (0 : ConnesKreimer.Forest P.Tree),
+    Forest.vertexCount_zero, zero_add]
+
 /-- The graft of a forest never has zero vertices: the new root counts. -/
 theorem vertices_graft_pos (f : ConnesKreimer.Forest P.Tree) :
     0 < P.vertices (P.graft f) := by

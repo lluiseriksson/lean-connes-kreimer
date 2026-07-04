@@ -104,6 +104,7 @@ Closed grafting lemmas:
 * `ConnesKreimer.GraftingProvider.isHomogeneousVertexDegree_graftGenerator_zero`
 * `ConnesKreimer.GraftingProvider.graftGenerator_zero_mem_homogeneousSubmodule`
 * `ConnesKreimer.GraftingProvider.vertices_graft_zero`
+* `ConnesKreimer.GraftingProvider.vertices_graft_single`
 * `ConnesKreimer.GraftingProvider.vertices_graft_single_one`
 * `ConnesKreimer.GraftingProvider.vertices_graft_pos`
 * `ConnesKreimer.GraftingProvider.vertices_graft_eq_one_iff_vertexCount_zero`
@@ -139,8 +140,10 @@ empty graft
 `ConnesKreimer.GraftingProvider.graftGenerator_zero_mem_homogeneousSubmodule`,
 plus the provider-level grafting degree shift, including the closed
 empty-forest value
-`ConnesKreimer.GraftingProvider.vertices_graft_zero` and the singleton graft
-count `ConnesKreimer.GraftingProvider.vertices_graft_single_one`.  The
+`ConnesKreimer.GraftingProvider.vertices_graft_zero`, the single-tree
+multiplicity formula
+`ConnesKreimer.GraftingProvider.vertices_graft_single`, and the singleton
+graft count `ConnesKreimer.GraftingProvider.vertices_graft_single_one`.  The
 criterion
 `ConnesKreimer.GraftingProvider.vertices_graft_eq_one_iff_vertexCount_zero`
 isolates the one-vertex graft case using only the provider vertex-count law.

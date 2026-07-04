@@ -1,8 +1,8 @@
 # Mother-Facing Interface Digest
 
-Last updated: 2026-07-03.
+Last updated: 2026-07-04.
 
-Base public HEAD summarized here: `b1c252ae6086ab1530c3400ebf84582d8fdff784`.
+Base public HEAD summarized here: `41a19ad77fde166f050365e62ba62f18eb80e4cc`.
 
 ## Import
 
@@ -75,6 +75,7 @@ Closed grading lemmas:
 * `ConnesKreimer.Forest.vertexCount_zero`
 * `ConnesKreimer.Forest.vertexCount_add`
 * `ConnesKreimer.Forest.vertexCount_single`
+* `ConnesKreimer.Forest.vertexCount_single_one`
 * `ConnesKreimer.isHomogeneousVertexDegree_zero`
 * `ConnesKreimer.IsHomogeneousVertexDegree.add`
 * `ConnesKreimer.IsHomogeneousVertexDegree.smul`

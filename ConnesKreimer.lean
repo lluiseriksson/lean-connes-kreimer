@@ -2,3 +2,4 @@ import ConnesKreimer.Basic
 import ConnesKreimer.Interfaces
 import ConnesKreimer.Grading
 import ConnesKreimer.Grafting
+import ConnesKreimer.ImportOracle

@@ -20,6 +20,10 @@ This root import currently re-exports the closed-proof M0 surface:
 * `ConnesKreimer.Grafting`
 * the explicit frontier hypotheses in `ConnesKreimer.Interfaces`
 
+Consumability oracle: `ConnesKreimer.ImportOracle` is built with the library
+and imports only `Interfaces` before checking representative closed M0 names.
+It is an internal build check, not an additional consumer-facing import path.
+
 There is still no direct import from THE-ERIKSSON-PROGRAMME into this
 satellite, and this satellite should not be imported by the mother repository
 until a real counterterm-bookkeeping consumer exists.

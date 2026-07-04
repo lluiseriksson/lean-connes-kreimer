@@ -134,6 +134,21 @@ theorem mem_homogeneousSubmodule (vertices : Tree -> Nat) (n : Nat)
       ↔ IsHomogeneousVertexDegree vertices n p :=
   Iff.rfl
 
+theorem treeGenerator_mem_homogeneousSubmodule [DecidableEq Tree]
+    (vertices : Tree -> Nat) (t : Tree) :
+    treeGenerator R t ∈ homogeneousSubmodule vertices R (vertices t) :=
+  isHomogeneousVertexDegree_treeGenerator (R := R) vertices t
+
+theorem forestMonomial_mem_homogeneousSubmodule [DecidableEq Tree]
+    (vertices : Tree -> Nat) (f : Forest Tree) :
+    forestMonomial R f ∈ homogeneousSubmodule vertices R
+      (Forest.vertexCount vertices f) :=
+  isHomogeneousVertexDegree_forestMonomial (R := R) vertices f
+
+theorem one_mem_homogeneousSubmodule [DecidableEq Tree] (vertices : Tree -> Nat) :
+    (1 : CKAlgebra R Tree) ∈ homogeneousSubmodule vertices R 0 :=
+  isHomogeneousVertexDegree_one (R := R) vertices
+
 /-- The graded-monoid law for the vertex grading: the product of the degree
 `m` and degree `n` components lands in degree `m + n`. -/
 theorem homogeneousSubmodule_mul_mem [DecidableEq Tree] (vertices : Tree -> Nat) {m n : Nat}

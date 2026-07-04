@@ -91,6 +91,9 @@ Closed grading lemmas:
 * `ConnesKreimer.isHomogeneousVertexDegree_one`
 * `ConnesKreimer.homogeneousSubmodule`
 * `ConnesKreimer.mem_homogeneousSubmodule`
+* `ConnesKreimer.treeGenerator_mem_homogeneousSubmodule`
+* `ConnesKreimer.forestMonomial_mem_homogeneousSubmodule`
+* `ConnesKreimer.one_mem_homogeneousSubmodule`
 * `ConnesKreimer.homogeneousSubmodule_mul_mem`
 
 Closed grafting lemmas:
@@ -127,7 +130,8 @@ but that branch is not a consumable mainline interface.
 ## What the Mother Repository Can Consume Today
 
 Today the useful payload is bookkeeping infrastructure: forests as polynomial
-monomials, vertex grading, homogeneous components, and the provider-level
+monomials, vertex grading, homogeneous components with direct membership
+lemmas for generators, monomials, and the unit, and the provider-level
 grafting degree shift, including the closed empty-forest value
 `ConnesKreimer.GraftingProvider.vertices_graft_zero` and the singleton graft
 count `ConnesKreimer.GraftingProvider.vertices_graft_single_one`.  The

@@ -28,6 +28,8 @@ digest.
 * `ConnesKreimer.CKAlgebra (R : Type v) (Tree : Type u) [CommSemiring R]`
 * `ConnesKreimer.treeGenerator`
 * `ConnesKreimer.forestMonomial`
+* `ConnesKreimer.forestMonomial_zero`
+* `ConnesKreimer.forestMonomial_add`
 * `ConnesKreimer.treeGenerator_eq_forestMonomial_single_one`
 * `ConnesKreimer.Forest.vertexCount`
 * `ConnesKreimer.IsHomogeneousVertexDegree`

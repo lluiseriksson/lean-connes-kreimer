@@ -211,6 +211,22 @@ theorem one_lt_vertices_graft_iff_vertexCount_pos
   · intro h
     simpa [Nat.succ_eq_add_one] using Nat.succ_lt_succ h
 
+/-- A singleton-source graft has more than the new root precisely when its
+source multiplicity-weighted vertex count is positive. -/
+theorem one_lt_vertices_graft_single_iff_mul_vertices_pos
+    (t : P.Tree) (m : Nat) :
+    1 < P.vertices (P.graft (Finsupp.single t m : ConnesKreimer.Forest P.Tree))
+      ↔ 0 < m * P.vertices t := by
+  simp
+
+/-- A multiplicity-one singleton-source graft has more than the new root
+precisely when the source tree has positive vertex count. -/
+theorem one_lt_vertices_graft_single_one_iff_vertices_pos
+    (t : P.Tree) :
+    1 < P.vertices (P.graft (Finsupp.single t 1 : ConnesKreimer.Forest P.Tree))
+      ↔ 0 < P.vertices t := by
+  simp
+
 /-- Grafting is degree-injective on vertex counts: forests of different
 vertex counts graft to trees of different vertex counts. -/
 theorem vertices_graft_injective_on_count

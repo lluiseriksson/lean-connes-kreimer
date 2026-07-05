@@ -208,6 +208,17 @@ theorem vertices_graft_injective_on_count
   rw [P.vertices_graft f, P.vertices_graft g] at h
   exact Nat.succ_injective h
 
+/-- Two grafted forests have the same vertex count exactly when their source
+forests have the same vertex count. -/
+theorem vertices_graft_eq_iff_vertexCount_eq
+    {f g : ConnesKreimer.Forest P.Tree} :
+    P.vertices (P.graft f) = P.vertices (P.graft g)
+      ↔ Forest.vertexCount P.vertices f = Forest.vertexCount P.vertices g := by
+  constructor
+  · exact P.vertices_graft_injective_on_count
+  · intro h
+    rw [P.vertices_graft f, P.vertices_graft g, h]
+
 end GraftingProvider
 
 end ConnesKreimer

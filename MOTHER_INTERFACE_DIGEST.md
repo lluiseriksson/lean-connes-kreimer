@@ -1,6 +1,6 @@
 # Mother-Facing Interface Digest
 
-Last updated: 2026-07-04.
+Last updated: 2026-07-05.
 
 Base public HEAD before this digest refresh:
 `2e32a07e927c711b02cf73ba5be6d4d02ad17447`.
@@ -111,6 +111,10 @@ Closed grafting lemmas:
 * `ConnesKreimer.GraftingProvider.vertices_graft_single`
 * `ConnesKreimer.GraftingProvider.vertices_graft_single_one`
 * `ConnesKreimer.GraftingProvider.vertices_graft_pos`
+* `ConnesKreimer.GraftingProvider.vertices_graft_single_pos`
+* `ConnesKreimer.GraftingProvider.vertices_graft_single_ne_zero`
+* `ConnesKreimer.GraftingProvider.vertices_graft_single_one_pos`
+* `ConnesKreimer.GraftingProvider.vertices_graft_single_one_ne_zero`
 * `ConnesKreimer.GraftingProvider.vertices_graft_eq_one_iff_vertexCount_zero`
 * `ConnesKreimer.GraftingProvider.vertices_graft_injective_on_count`
 
@@ -157,7 +161,14 @@ empty-forest value
 `ConnesKreimer.GraftingProvider.vertices_graft_zero`, the single-tree
 multiplicity formula
 `ConnesKreimer.GraftingProvider.vertices_graft_single`, and the singleton
-graft count `ConnesKreimer.GraftingProvider.vertices_graft_single_one`.  The
+graft count `ConnesKreimer.GraftingProvider.vertices_graft_single_one`.
+For downstream guards that need positivity rather than an exact degree formula,
+the singleton wrappers
+`ConnesKreimer.GraftingProvider.vertices_graft_single_pos`,
+`ConnesKreimer.GraftingProvider.vertices_graft_single_ne_zero`,
+`ConnesKreimer.GraftingProvider.vertices_graft_single_one_pos`, and
+`ConnesKreimer.GraftingProvider.vertices_graft_single_one_ne_zero` expose the
+nonzero new-root fact without unfolding the provider law.  The
 criterion
 `ConnesKreimer.GraftingProvider.vertices_graft_eq_one_iff_vertexCount_zero`
 isolates the one-vertex graft case using only the provider vertex-count law.

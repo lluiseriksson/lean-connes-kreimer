@@ -135,6 +135,26 @@ theorem vertices_graft_pos (f : ConnesKreimer.Forest P.Tree) :
   rw [P.vertices_graft f]
   exact Nat.succ_pos _
 
+/-- Singleton-source grafts have positive vertex count. -/
+theorem vertices_graft_single_pos (t : P.Tree) (m : Nat) :
+    0 < P.vertices (P.graft (Finsupp.single t m : ConnesKreimer.Forest P.Tree)) :=
+  P.vertices_graft_pos (Finsupp.single t m : ConnesKreimer.Forest P.Tree)
+
+/-- Singleton-source grafts never have zero vertices. -/
+theorem vertices_graft_single_ne_zero (t : P.Tree) (m : Nat) :
+    P.vertices (P.graft (Finsupp.single t m : ConnesKreimer.Forest P.Tree)) ≠ 0 :=
+  Nat.ne_of_gt (P.vertices_graft_single_pos t m)
+
+/-- Multiplicity-one singleton-source grafts have positive vertex count. -/
+theorem vertices_graft_single_one_pos (t : P.Tree) :
+    0 < P.vertices (P.graft (Finsupp.single t 1 : ConnesKreimer.Forest P.Tree)) :=
+  P.vertices_graft_single_pos t 1
+
+/-- Multiplicity-one singleton-source grafts never have zero vertices. -/
+theorem vertices_graft_single_one_ne_zero (t : P.Tree) :
+    P.vertices (P.graft (Finsupp.single t 1 : ConnesKreimer.Forest P.Tree)) ≠ 0 :=
+  Nat.ne_of_gt (P.vertices_graft_single_one_pos t)
+
 /-- A graft has exactly one vertex precisely when the source forest has
 vertex count zero. -/
 theorem vertices_graft_eq_one_iff_vertexCount_zero

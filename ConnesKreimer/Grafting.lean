@@ -135,10 +135,24 @@ theorem vertices_graft_pos (f : ConnesKreimer.Forest P.Tree) :
   rw [P.vertices_graft f]
   exact Nat.succ_pos _
 
+/-- Grafting strictly increases the source forest vertex count by adding the
+new root. -/
+theorem vertexCount_lt_vertices_graft (f : ConnesKreimer.Forest P.Tree) :
+    Forest.vertexCount P.vertices f < P.vertices (P.graft f) := by
+  rw [P.vertices_graft f]
+  exact Nat.lt_succ_self _
+
 /-- Singleton-source grafts have positive vertex count. -/
 theorem vertices_graft_single_pos (t : P.Tree) (m : Nat) :
     0 < P.vertices (P.graft (Finsupp.single t m : ConnesKreimer.Forest P.Tree)) :=
   P.vertices_graft_pos (Finsupp.single t m : ConnesKreimer.Forest P.Tree)
+
+/-- Singleton-source grafts strictly increase the source forest vertex count. -/
+theorem vertexCount_single_lt_vertices_graft_single (t : P.Tree) (m : Nat) :
+    m * P.vertices t
+      < P.vertices (P.graft (Finsupp.single t m : ConnesKreimer.Forest P.Tree)) := by
+  rw [P.vertices_graft_single]
+  exact Nat.lt_succ_self _
 
 /-- Singleton-source grafts never have zero vertices. -/
 theorem vertices_graft_single_ne_zero (t : P.Tree) (m : Nat) :
@@ -149,6 +163,14 @@ theorem vertices_graft_single_ne_zero (t : P.Tree) (m : Nat) :
 theorem vertices_graft_single_one_pos (t : P.Tree) :
     0 < P.vertices (P.graft (Finsupp.single t 1 : ConnesKreimer.Forest P.Tree)) :=
   P.vertices_graft_single_pos t 1
+
+/-- Multiplicity-one singleton-source grafts strictly increase tree vertex
+count. -/
+theorem vertices_lt_vertices_graft_single_one (t : P.Tree) :
+    P.vertices t
+      < P.vertices (P.graft (Finsupp.single t 1 : ConnesKreimer.Forest P.Tree)) := by
+  rw [P.vertices_graft_single_one]
+  exact Nat.lt_succ_self _
 
 /-- Multiplicity-one singleton-source grafts never have zero vertices. -/
 theorem vertices_graft_single_one_ne_zero (t : P.Tree) :

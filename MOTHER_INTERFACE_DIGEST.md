@@ -111,9 +111,12 @@ Closed grafting lemmas:
 * `ConnesKreimer.GraftingProvider.vertices_graft_single`
 * `ConnesKreimer.GraftingProvider.vertices_graft_single_one`
 * `ConnesKreimer.GraftingProvider.vertices_graft_pos`
+* `ConnesKreimer.GraftingProvider.vertexCount_lt_vertices_graft`
 * `ConnesKreimer.GraftingProvider.vertices_graft_single_pos`
+* `ConnesKreimer.GraftingProvider.vertexCount_single_lt_vertices_graft_single`
 * `ConnesKreimer.GraftingProvider.vertices_graft_single_ne_zero`
 * `ConnesKreimer.GraftingProvider.vertices_graft_single_one_pos`
+* `ConnesKreimer.GraftingProvider.vertices_lt_vertices_graft_single_one`
 * `ConnesKreimer.GraftingProvider.vertices_graft_single_one_ne_zero`
 * `ConnesKreimer.GraftingProvider.vertices_graft_eq_one_iff_vertexCount_zero`
 * `ConnesKreimer.GraftingProvider.vertices_graft_injective_on_count`
@@ -168,7 +171,14 @@ the singleton wrappers
 `ConnesKreimer.GraftingProvider.vertices_graft_single_ne_zero`,
 `ConnesKreimer.GraftingProvider.vertices_graft_single_one_pos`, and
 `ConnesKreimer.GraftingProvider.vertices_graft_single_one_ne_zero` expose the
-nonzero new-root fact without unfolding the provider law.  The
+nonzero new-root fact without unfolding the provider law.  The strict
+new-root increment wrappers
+`ConnesKreimer.GraftingProvider.vertexCount_lt_vertices_graft`,
+`ConnesKreimer.GraftingProvider.vertexCount_single_lt_vertices_graft_single`,
+and
+`ConnesKreimer.GraftingProvider.vertices_lt_vertices_graft_single_one`
+expose that the graft target has more vertices than its source forest or
+single-tree source.  The
 criterion
 `ConnesKreimer.GraftingProvider.vertices_graft_eq_one_iff_vertexCount_zero`
 isolates the one-vertex graft case using only the provider vertex-count law.

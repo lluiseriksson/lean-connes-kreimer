@@ -80,6 +80,22 @@ theorem graftGenerator_single_mem_homogeneousSubmodule
       ∈ homogeneousSubmodule P.vertices R (m * P.vertices t + 1) :=
   P.isHomogeneousVertexDegree_graftGenerator_single (R := R) t m
 
+/-- A singleton-source graft generator with multiplicity one has degree
+`vertices t + 1`. -/
+theorem isHomogeneousVertexDegree_graftGenerator_single_one
+    [DecidableEq P.Tree]
+    (t : P.Tree) :
+    IsHomogeneousVertexDegree (R := R) P.vertices (P.vertices t + 1)
+      (P.graftGenerator R (Finsupp.single t 1 : ConnesKreimer.Forest P.Tree)) := by
+  simpa using P.isHomogeneousVertexDegree_graftGenerator_single (R := R) t 1
+
+theorem graftGenerator_single_one_mem_homogeneousSubmodule
+    [DecidableEq P.Tree]
+    (t : P.Tree) :
+    P.graftGenerator R (Finsupp.single t 1 : ConnesKreimer.Forest P.Tree)
+      ∈ homogeneousSubmodule P.vertices R (P.vertices t + 1) :=
+  P.isHomogeneousVertexDegree_graftGenerator_single_one (R := R) t
+
 /-- Grafting the empty forest produces a one-vertex generator. -/
 theorem isHomogeneousVertexDegree_graftGenerator_zero [DecidableEq P.Tree] :
     IsHomogeneousVertexDegree (R := R) P.vertices 1

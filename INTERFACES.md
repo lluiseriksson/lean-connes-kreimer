@@ -63,6 +63,8 @@ digest.
 * `ConnesKreimer.GraftingProvider.graftGenerator_mem_homogeneousSubmodule`
 * `ConnesKreimer.GraftingProvider.isHomogeneousVertexDegree_graftGenerator_single`
 * `ConnesKreimer.GraftingProvider.graftGenerator_single_mem_homogeneousSubmodule`
+* `ConnesKreimer.GraftingProvider.isHomogeneousVertexDegree_graftGenerator_single_one`
+* `ConnesKreimer.GraftingProvider.graftGenerator_single_one_mem_homogeneousSubmodule`
 * `ConnesKreimer.GraftingProvider.isHomogeneousVertexDegree_graftGenerator_zero`
 * `ConnesKreimer.GraftingProvider.graftGenerator_zero_mem_homogeneousSubmodule`
 * `ConnesKreimer.GraftingProvider.vertices_graft_zero`

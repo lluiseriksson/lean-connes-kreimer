@@ -73,6 +73,7 @@ digest.
 * `ConnesKreimer.GraftingProvider.vertices_graft_pos`
 * `ConnesKreimer.GraftingProvider.vertices_graft_ne_zero`
 * `ConnesKreimer.GraftingProvider.vertexCount_lt_vertices_graft`
+* `ConnesKreimer.GraftingProvider.vertexCount_ne_vertices_graft`
 * `ConnesKreimer.GraftingProvider.vertices_graft_single_pos`
 * `ConnesKreimer.GraftingProvider.vertexCount_single_lt_vertices_graft_single`
 * `ConnesKreimer.GraftingProvider.vertices_graft_single_ne_zero`

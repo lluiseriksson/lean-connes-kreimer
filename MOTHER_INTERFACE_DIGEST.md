@@ -113,6 +113,7 @@ Closed grafting lemmas:
 * `ConnesKreimer.GraftingProvider.vertices_graft_pos`
 * `ConnesKreimer.GraftingProvider.vertices_graft_ne_zero`
 * `ConnesKreimer.GraftingProvider.vertexCount_lt_vertices_graft`
+* `ConnesKreimer.GraftingProvider.vertexCount_ne_vertices_graft`
 * `ConnesKreimer.GraftingProvider.vertices_graft_single_pos`
 * `ConnesKreimer.GraftingProvider.vertexCount_single_lt_vertices_graft_single`
 * `ConnesKreimer.GraftingProvider.vertices_graft_single_ne_zero`
@@ -177,6 +178,7 @@ wrappers
 nonzero new-root fact without unfolding the provider law.  The strict
 new-root increment wrappers
 `ConnesKreimer.GraftingProvider.vertexCount_lt_vertices_graft`,
+`ConnesKreimer.GraftingProvider.vertexCount_ne_vertices_graft`,
 `ConnesKreimer.GraftingProvider.vertexCount_single_lt_vertices_graft_single`,
 and
 `ConnesKreimer.GraftingProvider.vertices_lt_vertices_graft_single_one`

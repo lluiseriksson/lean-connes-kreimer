@@ -147,6 +147,11 @@ theorem vertexCount_lt_vertices_graft (f : ConnesKreimer.Forest P.Tree) :
   rw [P.vertices_graft f]
   exact Nat.lt_succ_self _
 
+/-- A graft target cannot have the same vertex count as its source forest. -/
+theorem vertexCount_ne_vertices_graft (f : ConnesKreimer.Forest P.Tree) :
+    Forest.vertexCount P.vertices f ≠ P.vertices (P.graft f) :=
+  ne_of_lt (P.vertexCount_lt_vertices_graft f)
+
 /-- Singleton-source grafts have positive vertex count. -/
 theorem vertices_graft_single_pos (t : P.Tree) (m : Nat) :
     0 < P.vertices (P.graft (Finsupp.single t m : ConnesKreimer.Forest P.Tree)) :=

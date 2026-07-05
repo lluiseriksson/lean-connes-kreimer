@@ -115,4 +115,9 @@ example (P : GraftingProvider.{u}) (f : Forest P.Tree) :
     P.vertices (P.graft f) = 1 ↔ Forest.vertexCount P.vertices f = 0 :=
   P.vertices_graft_eq_one_iff_vertexCount_zero f
 
+example (P : GraftingProvider.{u}) (f g : Forest P.Tree) :
+    P.vertices (P.graft f) = P.vertices (P.graft g)
+      ↔ Forest.vertexCount P.vertices f = Forest.vertexCount P.vertices g :=
+  P.vertices_graft_eq_iff_vertexCount_eq
+
 end ConnesKreimer

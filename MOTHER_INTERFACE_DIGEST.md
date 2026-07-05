@@ -101,6 +101,8 @@ Closed grafting lemmas:
 * `ConnesKreimer.GraftingProvider.graftGenerator`
 * `ConnesKreimer.GraftingProvider.isHomogeneousVertexDegree_graftGenerator`
 * `ConnesKreimer.GraftingProvider.graftGenerator_mem_homogeneousSubmodule`
+* `ConnesKreimer.GraftingProvider.isHomogeneousVertexDegree_graftGenerator_single`
+* `ConnesKreimer.GraftingProvider.graftGenerator_single_mem_homogeneousSubmodule`
 * `ConnesKreimer.GraftingProvider.isHomogeneousVertexDegree_graftGenerator_zero`
 * `ConnesKreimer.GraftingProvider.graftGenerator_zero_mem_homogeneousSubmodule`
 * `ConnesKreimer.GraftingProvider.vertices_graft_zero`
@@ -135,8 +137,13 @@ but that branch is not a consumable mainline interface.
 Today the useful payload is bookkeeping infrastructure: forests as polynomial
 monomials, vertex grading, homogeneous components with direct membership
 lemmas for generators, monomials, the unit, and provider-level graft
-generators, including the degree-1 homogeneous-submodule membership of the
-empty graft
+generators.  Singleton-source graft generators now have direct homogeneous
+degree and homogeneous-submodule wrappers,
+`ConnesKreimer.GraftingProvider.isHomogeneousVertexDegree_graftGenerator_single`
+and
+`ConnesKreimer.GraftingProvider.graftGenerator_single_mem_homogeneousSubmodule`,
+at the computed degree `m * P.vertices t + 1`.  The empty graft still has
+degree-1 homogeneous-submodule membership via
 `ConnesKreimer.GraftingProvider.graftGenerator_zero_mem_homogeneousSubmodule`,
 plus the provider-level grafting degree shift, including the closed
 empty-forest value

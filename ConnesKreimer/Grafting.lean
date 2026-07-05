@@ -61,6 +61,25 @@ theorem graftGenerator_mem_homogeneousSubmodule
       (Forest.vertexCount P.vertices f + 1) :=
   P.isHomogeneousVertexDegree_graftGenerator (R := R) f
 
+/-- Singleton forests give graft generators in the explicitly computed
+degree `m * vertices t + 1`. -/
+theorem isHomogeneousVertexDegree_graftGenerator_single
+    [DecidableEq P.Tree]
+    (t : P.Tree) (m : Nat) :
+    IsHomogeneousVertexDegree (R := R) P.vertices (m * P.vertices t + 1)
+      (P.graftGenerator R (Finsupp.single t m : ConnesKreimer.Forest P.Tree)) := by
+  have h := P.isHomogeneousVertexDegree_graftGenerator (R := R)
+    (Finsupp.single t m : ConnesKreimer.Forest P.Tree)
+  rw [Forest.vertexCount_single] at h
+  exact h
+
+theorem graftGenerator_single_mem_homogeneousSubmodule
+    [DecidableEq P.Tree]
+    (t : P.Tree) (m : Nat) :
+    P.graftGenerator R (Finsupp.single t m : ConnesKreimer.Forest P.Tree)
+      ∈ homogeneousSubmodule P.vertices R (m * P.vertices t + 1) :=
+  P.isHomogeneousVertexDegree_graftGenerator_single (R := R) t m
+
 /-- Grafting the empty forest produces a one-vertex generator. -/
 theorem isHomogeneousVertexDegree_graftGenerator_zero [DecidableEq P.Tree] :
     IsHomogeneousVertexDegree (R := R) P.vertices 1

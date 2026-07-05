@@ -145,6 +145,20 @@ theorem forestMonomial_mem_homogeneousSubmodule [DecidableEq Tree]
       (Forest.vertexCount vertices f) :=
   isHomogeneousVertexDegree_forestMonomial (R := R) vertices f
 
+theorem isHomogeneousVertexDegree_forestMonomial_mul [DecidableEq Tree]
+    (vertices : Tree -> Nat) (f g : Forest Tree) :
+    IsHomogeneousVertexDegree (R := R) vertices
+      (Forest.vertexCount vertices f + Forest.vertexCount vertices g)
+      (forestMonomial R f * forestMonomial R g) :=
+  (isHomogeneousVertexDegree_forestMonomial (R := R) vertices f).mul
+    (isHomogeneousVertexDegree_forestMonomial (R := R) vertices g)
+
+theorem forestMonomial_mul_mem_homogeneousSubmodule [DecidableEq Tree]
+    (vertices : Tree -> Nat) (f g : Forest Tree) :
+    forestMonomial R f * forestMonomial R g ∈ homogeneousSubmodule vertices R
+      (Forest.vertexCount vertices f + Forest.vertexCount vertices g) :=
+  isHomogeneousVertexDegree_forestMonomial_mul (R := R) vertices f g
+
 theorem one_mem_homogeneousSubmodule [DecidableEq Tree] (vertices : Tree -> Nat) :
     (1 : CKAlgebra R Tree) ∈ homogeneousSubmodule vertices R 0 :=
   isHomogeneousVertexDegree_one (R := R) vertices

@@ -47,6 +47,19 @@ def forestMonomial (R : Type v) {Tree : Type u} [CommSemiring R] (f : Forest Tre
   MvPolynomial.monomial f 1
 
 @[simp]
+theorem forestMonomial_zero {Tree : Type u} {R : Type v} [CommSemiring R] :
+    forestMonomial R (0 : Forest Tree) = 1 := by
+  change (MvPolynomial.monomial (0 : Forest Tree)) (1 : R) = 1
+  rw [MvPolynomial.monomial_zero']
+  simp
+
+@[simp]
+theorem forestMonomial_add {Tree : Type u} {R : Type v} [CommSemiring R]
+    (f g : Forest Tree) :
+    forestMonomial R (f + g) = forestMonomial R f * forestMonomial R g := by
+  simp [forestMonomial, MvPolynomial.monomial_mul]
+
+@[simp]
 theorem treeGenerator_eq_forestMonomial_single_one {Tree : Type u} {R : Type v}
     [CommSemiring R] (t : Tree) :
     treeGenerator R t = forestMonomial R (Finsupp.single t 1 : Forest Tree) := by

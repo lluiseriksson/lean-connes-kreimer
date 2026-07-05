@@ -3,7 +3,7 @@
 Last updated: 2026-07-05.
 
 Base public HEAD before this digest refresh:
-`2e32a07e927c711b02cf73ba5be6d4d02ad17447`.
+`194017dbc820c88d32758b90fba4b934df013fa3`.
 
 ## Import
 
@@ -65,6 +65,8 @@ Algebra and forests:
 * `ConnesKreimer.CKAlgebra`
 * `ConnesKreimer.treeGenerator`
 * `ConnesKreimer.forestMonomial`
+* `ConnesKreimer.forestMonomial_zero`
+* `ConnesKreimer.forestMonomial_add`
 * `ConnesKreimer.treeGenerator_eq_forestMonomial_single_one`
 * `ConnesKreimer.Forest.vertexCount`
 * `ConnesKreimer.IsHomogeneousVertexDegree`
@@ -152,8 +154,13 @@ but that branch is not a consumable mainline interface.
 Today the useful payload is bookkeeping infrastructure: forests as polynomial
 monomials, vertex grading, homogeneous components with direct membership
 lemmas for generators, monomials, the unit, and provider-level graft
-generators.  Singleton-source graft generators now have direct homogeneous
-degree and homogeneous-submodule wrappers,
+generators.  The closed monomial wrappers
+`ConnesKreimer.forestMonomial_zero` and
+`ConnesKreimer.forestMonomial_add` expose that the empty forest maps to the
+unit and that forest addition maps to multiplication in `CKAlgebra`.  These
+are the direct M0 bookkeeping facts a downstream counterterm ledger would need
+before any coproduct API exists.  Singleton-source graft generators have direct
+homogeneous degree and homogeneous-submodule wrappers,
 `ConnesKreimer.GraftingProvider.isHomogeneousVertexDegree_graftGenerator_single`
 and
 `ConnesKreimer.GraftingProvider.graftGenerator_single_mem_homogeneousSubmodule`,

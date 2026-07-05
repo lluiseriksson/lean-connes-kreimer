@@ -85,6 +85,20 @@ example (P : GraftingProvider.{u}) (t : P.Tree) (m : Nat) :
     0 < P.vertices (P.graft (Finsupp.single t m : Forest P.Tree)) :=
   P.vertices_graft_single_pos t m
 
+example (P : GraftingProvider.{u}) (f : Forest P.Tree) :
+    Forest.vertexCount P.vertices f < P.vertices (P.graft f) :=
+  P.vertexCount_lt_vertices_graft f
+
+example (P : GraftingProvider.{u}) (t : P.Tree) (m : Nat) :
+    m * P.vertices t
+      < P.vertices (P.graft (Finsupp.single t m : Forest P.Tree)) :=
+  P.vertexCount_single_lt_vertices_graft_single t m
+
+example (P : GraftingProvider.{u}) (t : P.Tree) :
+    P.vertices t
+      < P.vertices (P.graft (Finsupp.single t 1 : Forest P.Tree)) :=
+  P.vertices_lt_vertices_graft_single_one t
+
 example (P : GraftingProvider.{u}) (t : P.Tree) :
     P.vertices (P.graft (Finsupp.single t 1 : Forest P.Tree)) ≠ 0 :=
   P.vertices_graft_single_one_ne_zero t

@@ -71,9 +71,12 @@ digest.
 * `ConnesKreimer.GraftingProvider.vertices_graft_single`
 * `ConnesKreimer.GraftingProvider.vertices_graft_single_one`
 * `ConnesKreimer.GraftingProvider.vertices_graft_pos`
+* `ConnesKreimer.GraftingProvider.vertexCount_lt_vertices_graft`
 * `ConnesKreimer.GraftingProvider.vertices_graft_single_pos`
+* `ConnesKreimer.GraftingProvider.vertexCount_single_lt_vertices_graft_single`
 * `ConnesKreimer.GraftingProvider.vertices_graft_single_ne_zero`
 * `ConnesKreimer.GraftingProvider.vertices_graft_single_one_pos`
+* `ConnesKreimer.GraftingProvider.vertices_lt_vertices_graft_single_one`
 * `ConnesKreimer.GraftingProvider.vertices_graft_single_one_ne_zero`
 * `ConnesKreimer.GraftingProvider.vertices_graft_eq_one_iff_vertexCount_zero`
 * `ConnesKreimer.GraftingProvider.vertices_graft_injective_on_count`

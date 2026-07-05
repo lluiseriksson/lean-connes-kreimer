@@ -135,6 +135,11 @@ theorem vertices_graft_pos (f : ConnesKreimer.Forest P.Tree) :
   rw [P.vertices_graft f]
   exact Nat.succ_pos _
 
+/-- The graft of any forest has nonzero vertex count. -/
+theorem vertices_graft_ne_zero (f : ConnesKreimer.Forest P.Tree) :
+    P.vertices (P.graft f) ≠ 0 :=
+  Nat.ne_of_gt (P.vertices_graft_pos f)
+
 /-- Grafting strictly increases the source forest vertex count by adding the
 new root. -/
 theorem vertexCount_lt_vertices_graft (f : ConnesKreimer.Forest P.Tree) :

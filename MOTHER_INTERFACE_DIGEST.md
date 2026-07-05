@@ -103,6 +103,8 @@ Closed grafting lemmas:
 * `ConnesKreimer.GraftingProvider.graftGenerator_mem_homogeneousSubmodule`
 * `ConnesKreimer.GraftingProvider.isHomogeneousVertexDegree_graftGenerator_single`
 * `ConnesKreimer.GraftingProvider.graftGenerator_single_mem_homogeneousSubmodule`
+* `ConnesKreimer.GraftingProvider.isHomogeneousVertexDegree_graftGenerator_single_one`
+* `ConnesKreimer.GraftingProvider.graftGenerator_single_one_mem_homogeneousSubmodule`
 * `ConnesKreimer.GraftingProvider.isHomogeneousVertexDegree_graftGenerator_zero`
 * `ConnesKreimer.GraftingProvider.graftGenerator_zero_mem_homogeneousSubmodule`
 * `ConnesKreimer.GraftingProvider.vertices_graft_zero`
@@ -142,7 +144,12 @@ degree and homogeneous-submodule wrappers,
 `ConnesKreimer.GraftingProvider.isHomogeneousVertexDegree_graftGenerator_single`
 and
 `ConnesKreimer.GraftingProvider.graftGenerator_single_mem_homogeneousSubmodule`,
-at the computed degree `m * P.vertices t + 1`.  The empty graft still has
+at the computed degree `m * P.vertices t + 1`.  The multiplicity-one
+specializations
+`ConnesKreimer.GraftingProvider.isHomogeneousVertexDegree_graftGenerator_single_one`
+and
+`ConnesKreimer.GraftingProvider.graftGenerator_single_one_mem_homogeneousSubmodule`
+give the direct degree `P.vertices t + 1` surface.  The empty graft still has
 degree-1 homogeneous-submodule membership via
 `ConnesKreimer.GraftingProvider.graftGenerator_zero_mem_homogeneousSubmodule`,
 plus the provider-level grafting degree shift, including the closed

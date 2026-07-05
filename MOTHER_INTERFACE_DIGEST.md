@@ -122,6 +122,8 @@ Closed grafting lemmas:
 * `ConnesKreimer.GraftingProvider.vertices_graft_single_one_ne_zero`
 * `ConnesKreimer.GraftingProvider.vertices_graft_eq_one_iff_vertexCount_zero`
 * `ConnesKreimer.GraftingProvider.one_lt_vertices_graft_iff_vertexCount_pos`
+* `ConnesKreimer.GraftingProvider.one_lt_vertices_graft_single_iff_mul_vertices_pos`
+* `ConnesKreimer.GraftingProvider.one_lt_vertices_graft_single_one_iff_vertices_pos`
 * `ConnesKreimer.GraftingProvider.vertices_graft_injective_on_count`
 * `ConnesKreimer.GraftingProvider.vertices_graft_eq_iff_vertexCount_eq`
 
@@ -192,7 +194,13 @@ isolates the one-vertex graft case using only the provider vertex-count law,
 and
 `ConnesKreimer.GraftingProvider.one_lt_vertices_graft_iff_vertexCount_pos`
 exposes the complementary guard that a graft has more than the new root exactly
-when the source forest has positive vertex count.  Meanwhile,
+when the source forest has positive vertex count.  Its singleton
+specializations
+`ConnesKreimer.GraftingProvider.one_lt_vertices_graft_single_iff_mul_vertices_pos`
+and
+`ConnesKreimer.GraftingProvider.one_lt_vertices_graft_single_one_iff_vertices_pos`
+give the same guard directly for one named source with arbitrary multiplicity
+and for multiplicity one.  Meanwhile,
 `ConnesKreimer.GraftingProvider.vertices_graft_eq_iff_vertexCount_eq`
 packages the matching equality criterion for two grafted forests.
 The bridge lemma `ConnesKreimer.treeGenerator_eq_forestMonomial_single_one`

@@ -93,6 +93,10 @@ example (P : GraftingProvider.{u}) (f : Forest P.Tree) :
     Forest.vertexCount P.vertices f < P.vertices (P.graft f) :=
   P.vertexCount_lt_vertices_graft f
 
+example (P : GraftingProvider.{u}) (f : Forest P.Tree) :
+    Forest.vertexCount P.vertices f ≠ P.vertices (P.graft f) :=
+  P.vertexCount_ne_vertices_graft f
+
 example (P : GraftingProvider.{u}) (t : P.Tree) (m : Nat) :
     m * P.vertices t
       < P.vertices (P.graft (Finsupp.single t m : Forest P.Tree)) :=

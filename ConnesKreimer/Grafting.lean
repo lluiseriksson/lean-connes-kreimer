@@ -199,6 +199,18 @@ theorem vertices_graft_eq_one_iff_vertexCount_zero
   · intro h
     rw [h]
 
+/-- A graft has more than the new root precisely when its source forest has
+positive vertex count. -/
+theorem one_lt_vertices_graft_iff_vertexCount_pos
+    (f : ConnesKreimer.Forest P.Tree) :
+    1 < P.vertices (P.graft f) ↔ 0 < Forest.vertexCount P.vertices f := by
+  rw [P.vertices_graft f]
+  constructor
+  · intro h
+    exact Nat.succ_lt_succ_iff.mp (by simpa [Nat.succ_eq_add_one] using h)
+  · intro h
+    simpa [Nat.succ_eq_add_one] using Nat.succ_lt_succ h
+
 /-- Grafting is degree-injective on vertex counts: forests of different
 vertex counts graft to trees of different vertex counts. -/
 theorem vertices_graft_injective_on_count

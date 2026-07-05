@@ -46,6 +46,17 @@ example (vertices : Tree -> Nat) (f : Forest Tree) :
       (Forest.vertexCount vertices f) :=
   forestMonomial_mem_homogeneousSubmodule (R := R) vertices f
 
+example (vertices : Tree -> Nat) (f g : Forest Tree) :
+    IsHomogeneousVertexDegree (R := R) vertices
+      (Forest.vertexCount vertices f + Forest.vertexCount vertices g)
+      (forestMonomial R f * forestMonomial R g) :=
+  isHomogeneousVertexDegree_forestMonomial_mul (R := R) vertices f g
+
+example (vertices : Tree -> Nat) (f g : Forest Tree) :
+    forestMonomial R f * forestMonomial R g ∈ homogeneousSubmodule vertices R
+      (Forest.vertexCount vertices f + Forest.vertexCount vertices g) :=
+  forestMonomial_mul_mem_homogeneousSubmodule (R := R) vertices f g
+
 example (vertices : Tree -> Nat) :
     (1 : CKAlgebra R Tree) ∈ homogeneousSubmodule vertices R 0 :=
   one_mem_homogeneousSubmodule (R := R) vertices

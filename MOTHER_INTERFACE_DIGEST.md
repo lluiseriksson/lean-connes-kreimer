@@ -3,7 +3,7 @@
 Last updated: 2026-07-05.
 
 Base public HEAD before this digest refresh:
-`194017dbc820c88d32758b90fba4b934df013fa3`.
+`f67d7d03b849509c0c303339444f064def5ffdf9`.
 
 ## Import
 
@@ -95,6 +95,8 @@ Closed grading lemmas:
 * `ConnesKreimer.mem_homogeneousSubmodule`
 * `ConnesKreimer.treeGenerator_mem_homogeneousSubmodule`
 * `ConnesKreimer.forestMonomial_mem_homogeneousSubmodule`
+* `ConnesKreimer.isHomogeneousVertexDegree_forestMonomial_mul`
+* `ConnesKreimer.forestMonomial_mul_mem_homogeneousSubmodule`
 * `ConnesKreimer.one_mem_homogeneousSubmodule`
 * `ConnesKreimer.homogeneousSubmodule_mul_mem`
 
@@ -159,7 +161,14 @@ generators.  The closed monomial wrappers
 `ConnesKreimer.forestMonomial_add` expose that the empty forest maps to the
 unit and that forest addition maps to multiplication in `CKAlgebra`.  These
 are the direct M0 bookkeeping facts a downstream counterterm ledger would need
-before any coproduct API exists.  Singleton-source graft generators have direct
+before any coproduct API exists.  The closed product-degree wrappers
+`ConnesKreimer.isHomogeneousVertexDegree_forestMonomial_mul` and
+`ConnesKreimer.forestMonomial_mul_mem_homogeneousSubmodule` expose that the
+product of forest monomials for `f` and `g` lies in vertex degree
+`ConnesKreimer.Forest.vertexCount vertices f +
+ConnesKreimer.Forest.vertexCount vertices g`, without requiring a downstream
+consumer to unfold the generic homogeneous multiplication lemma.
+Singleton-source graft generators have direct
 homogeneous degree and homogeneous-submodule wrappers,
 `ConnesKreimer.GraftingProvider.isHomogeneousVertexDegree_graftGenerator_single`
 and

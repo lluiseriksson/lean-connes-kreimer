@@ -160,14 +160,35 @@ example (P : GraftingProvider.{u}) [DecidableEq P.Tree] :
     P.graftGenerator R (0 : Forest P.Tree) ∈ homogeneousSubmodule P.vertices R 1 :=
   P.graftGenerator_zero_mem_homogeneousSubmodule (R := R)
 
+example (P : GraftingProvider.{u}) :
+    P.vertices (P.graft (0 : Forest P.Tree)) = 1 :=
+  P.vertices_graft_zero
+
 example (P : GraftingProvider.{u}) (t : P.Tree) (m : Nat) :
     P.vertices (P.graft (Finsupp.single t m : Forest P.Tree))
       = m * P.vertices t + 1 :=
   P.vertices_graft_single t m
 
+example (P : GraftingProvider.{u}) (t : P.Tree) :
+    P.vertices (P.graft (Finsupp.single t 1 : Forest P.Tree))
+      = P.vertices t + 1 :=
+  P.vertices_graft_single_one t
+
+example (P : GraftingProvider.{u}) (f : Forest P.Tree) :
+    0 < P.vertices (P.graft f) :=
+  P.vertices_graft_pos f
+
 example (P : GraftingProvider.{u}) (t : P.Tree) (m : Nat) :
     0 < P.vertices (P.graft (Finsupp.single t m : Forest P.Tree)) :=
   P.vertices_graft_single_pos t m
+
+example (P : GraftingProvider.{u}) (t : P.Tree) (m : Nat) :
+    P.vertices (P.graft (Finsupp.single t m : Forest P.Tree)) ≠ 0 :=
+  P.vertices_graft_single_ne_zero t m
+
+example (P : GraftingProvider.{u}) (t : P.Tree) :
+    0 < P.vertices (P.graft (Finsupp.single t 1 : Forest P.Tree)) :=
+  P.vertices_graft_single_one_pos t
 
 example (P : GraftingProvider.{u}) (f : Forest P.Tree) :
     P.vertices (P.graft f) ≠ 0 :=
@@ -222,6 +243,11 @@ example (P : GraftingProvider.{u}) (t : P.Tree) :
     1 < P.vertices (P.graft (Finsupp.single t 1 : Forest P.Tree))
       ↔ 0 < P.vertices t :=
   P.one_lt_vertices_graft_single_one_iff_vertices_pos t
+
+example (P : GraftingProvider.{u}) {f g : Forest P.Tree}
+    (h : P.vertices (P.graft f) = P.vertices (P.graft g)) :
+    Forest.vertexCount P.vertices f = Forest.vertexCount P.vertices g :=
+  P.vertices_graft_injective_on_count h
 
 example (P : GraftingProvider.{u}) (f g : Forest P.Tree) :
     P.vertices (P.graft f) = P.vertices (P.graft g)

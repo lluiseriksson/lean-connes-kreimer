@@ -87,6 +87,20 @@ theorem counit_graftOperator_forestMonomial {P : GraftingProvider.{u}}
   rw [D.graftOperator_forestMonomial f]
   exact D.counit_graft f
 
+/-- The supplied coproduct satisfies the `B_+` 1-cocycle equation on the
+normalized forest-monomial output of the graft operator.
+
+This is a consumer-facing wrapper combining `graftOperator_forestMonomial` with
+the supplied `cocycle` field; it does not assert that such data exist. -/
+theorem coproduct_graftOperator_forestMonomial {P : GraftingProvider.{u}}
+    (D : AdmissibleCutData P R) (f : ConnesKreimer.Forest P.Tree) :
+    D.coproduct (D.graftOperator (forestMonomial R f))
+      = (D.graftOperator (forestMonomial R f)) ⊗ₜ[R] 1
+        + (TensorProduct.map LinearMap.id D.graftOperator)
+            (D.coproduct (forestMonomial R f)) := by
+  rw [D.graftOperator_forestMonomial f]
+  exact D.cocycle f
+
 end AdmissibleCutData
 
 end ConnesKreimer

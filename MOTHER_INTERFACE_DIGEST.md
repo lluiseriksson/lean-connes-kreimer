@@ -3,7 +3,7 @@
 Last updated: 2026-07-06.
 
 Base public HEAD before this digest refresh:
-`35e2e60dc74256a71c92459d4e9ce99d877f76fe`.
+`9d8a4d4a09e94063b2c7e586176ae6928a6b5889`.
 
 ## Import
 
@@ -159,6 +159,7 @@ The following are explicit hypotheses, not proved structures:
 * `ConnesKreimer.hasAdmissibleCutData_iff_nonempty`
 * `ConnesKreimer.AdmissibleCutData.graftOperator_forestMonomial`
 * `ConnesKreimer.AdmissibleCutData.counit_graftOperator_forestMonomial`
+* `ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_forestMonomial`
 
 Current interface caveat: the three `HasRaw...` names and the three legacy
 compatibility names are `Nonempty` wrappers around Mathlib structure classes on
@@ -178,7 +179,9 @@ and are covered by the import oracle.  The data-contract helper
 linear graft operator sends the normalized forest monomial to the corresponding
 graft generator.  The wrapper
 `ConnesKreimer.AdmissibleCutData.counit_graftOperator_forestMonomial` exposes
-that the supplied counit kills that normalized graft-operator output.
+that the supplied counit kills that normalized graft-operator output.  The
+wrapper `ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_forestMonomial`
+exposes the supplied `B_+` 1-cocycle equation on the same normalized output.
 
 ## Current Interface Blocker
 
@@ -202,8 +205,9 @@ contract decision for the data-bearing admissible-cut API.  Main now exposes
 the shape to satisfy, plus
 `ConnesKreimer.hasAdmissibleCutData_iff_nonempty` and
 `ConnesKreimer.AdmissibleCutData.graftOperator_forestMonomial` and
-`ConnesKreimer.AdmissibleCutData.counit_graftOperator_forestMonomial` as wrapper
-audits.  The raw aliases remain explicitly raw.  The next interface-change PR
+`ConnesKreimer.AdmissibleCutData.counit_graftOperator_forestMonomial` and
+`ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_forestMonomial` as
+wrapper audits.  The raw aliases remain explicitly raw.  The next interface-change PR
 should decide whether the legacy admissible-cut names depend on this data or
 stay as compatibility aliases.
 
@@ -296,6 +300,9 @@ linear graft operator on `forestMonomial R f` to `P.graftGenerator R f` without
 unfolding the coefficient-one monomial field.  The wrapper
 `ConnesKreimer.AdmissibleCutData.counit_graftOperator_forestMonomial` then
 rewrites the supplied counit on that graft-operator output to zero, again
-without unfolding the data fields.  There is no proved admissible-cut data
+without unfolding the data fields.  The wrapper
+`ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_forestMonomial`
+rewrites the supplied coproduct on that same normalized output to the supplied
+`B_+` 1-cocycle right-hand side.  There is no proved admissible-cut data
 existence theorem on `main`, no bialgebra, no Hopf algebra, and no Yang-Mills
 renormalization claim.

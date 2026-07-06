@@ -118,7 +118,9 @@ Data-bearing admissible-cut contract:
 
 * `ConnesKreimer.AdmissibleCutData`
 * `ConnesKreimer.HasAdmissibleCutData`
+* `ConnesKreimer.HasAdmissibleCutCoalgebraContract`
 * `ConnesKreimer.hasAdmissibleCutData_iff_nonempty`
+* `ConnesKreimer.hasAdmissibleCutCoalgebraContract_iff_hasAdmissibleCutData`
 * `ConnesKreimer.AdmissibleCutData.graftOperator_forestMonomial`
 * `ConnesKreimer.AdmissibleCutData.graftOperator_treeGenerator`
 * `ConnesKreimer.AdmissibleCutData.counit_graftOperator_forestMonomial`
@@ -130,6 +132,11 @@ themselves pin the Connes-Kreimer admissible-cut coproduct.
 `AdmissibleCutData` is the stricter contract shape: it names a coproduct,
 counit, linear `B_+` operator, and the `B_+` 1-cocycle equations, while
 `hasAdmissibleCutData_iff_nonempty` exposes the definitional nonempty wrapper;
+`HasAdmissibleCutCoalgebraContract` is the data-backed contract name for
+consumers that want a pinned admissible-cut interface while the legacy
+`HasAdmissibleCutCoalgebra` name remains raw;
+`hasAdmissibleCutCoalgebraContract_iff_hasAdmissibleCutData` exposes that this
+contract is exactly `HasAdmissibleCutData`;
 `ConnesKreimer.AdmissibleCutData.graftOperator_forestMonomial` exposes the
 coefficient-one `forestMonomial` case of the linear `B_+` operator;
 `ConnesKreimer.AdmissibleCutData.graftOperator_treeGenerator` exposes the

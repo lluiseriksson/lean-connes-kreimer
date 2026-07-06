@@ -36,6 +36,10 @@ example (S : Type v) [CommRing S] (P : GraftingProvider.{u}) :
     HasAdmissibleCutData S P ↔ Nonempty (AdmissibleCutData P S) :=
   ConnesKreimer.hasAdmissibleCutData_iff_nonempty S P
 
+example (S : Type v) [CommRing S] (P : GraftingProvider.{u}) :
+    HasAdmissibleCutCoalgebraContract S P ↔ HasAdmissibleCutData S P :=
+  ConnesKreimer.hasAdmissibleCutCoalgebraContract_iff_hasAdmissibleCutData S P
+
 example (S : Type v) [CommRing S] (P : GraftingProvider.{u})
     (D : AdmissibleCutData P S) (f : Forest P.Tree) :
     D.graftOperator (forestMonomial S f) = P.graftGenerator S f :=

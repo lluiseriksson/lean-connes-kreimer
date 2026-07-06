@@ -31,6 +31,11 @@ mainline structure `AdmissibleCutData` pins the coproduct by the `B_+`
 1-cocycle equation as data; proving that such data exist remains frontier work.
 The helper `hasAdmissibleCutData_iff_nonempty` exposes only that
 `HasAdmissibleCutData` is the nonempty wrapper around this data contract.
+The alias `HasAdmissibleCutCoalgebraContract` is the data-backed contract name
+for consumers that need the pinned admissible-cut interface while legacy
+`HasAdmissibleCutCoalgebra` remains raw; the helper
+`hasAdmissibleCutCoalgebraContract_iff_hasAdmissibleCutData` exposes that it is
+exactly `HasAdmissibleCutData`.
 The wrapper `AdmissibleCutData.graftOperator_forestMonomial` exposes only the
 coefficient-one `forestMonomial` case of the data field `graftOperator_monomial`.
 The wrapper `AdmissibleCutData.graftOperator_treeGenerator` exposes the
@@ -67,6 +72,9 @@ Grafting layer (`Grafting.lean`):
 * `AdmissibleCutData` and `HasAdmissibleCutData` (data contract only: coproduct,
   counit, linear `B_+`, and the `B_+` 1-cocycle equations; no existence theorem).
 * `hasAdmissibleCutData_iff_nonempty` (definitional audit for the data wrapper).
+* `HasAdmissibleCutCoalgebraContract` (data-backed admissible-cut contract alias).
+* `hasAdmissibleCutCoalgebraContract_iff_hasAdmissibleCutData` (definitional audit
+  for the data-backed contract alias).
 * `AdmissibleCutData.graftOperator_forestMonomial` (closed wrapper for the
   normalized forest-monomial case of the graft operator field).
 * `AdmissibleCutData.graftOperator_treeGenerator` (closed wrapper for the

@@ -29,6 +29,8 @@ of a structure class, so any coalgebra/bialgebra/Hopf structure on
 `MvPolynomial Tree R` witnesses them, not only the admissible-cut one.  The
 mainline structure `AdmissibleCutData` pins the coproduct by the `B_+`
 1-cocycle equation as data; proving that such data exist remains frontier work.
+The helper `hasAdmissibleCutData_iff_nonempty` exposes only that
+`HasAdmissibleCutData` is the nonempty wrapper around this data contract.
 Re-expressing the legacy contract through it remains the next Interface-Change
 decision.
 
@@ -56,6 +58,7 @@ Grafting layer (`Grafting.lean`):
 * `vertices_graft_pos`, `vertices_graft_injective_on_count`.
 * `AdmissibleCutData` and `HasAdmissibleCutData` (data contract only: coproduct,
   counit, linear `B_+`, and the `B_+` 1-cocycle equations; no existence theorem).
+* `hasAdmissibleCutData_iff_nonempty` (definitional audit for the data wrapper).
 
 ## Frontier obligations (branch `frontier/M1`, statement-first, sorried)
 

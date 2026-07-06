@@ -3,7 +3,7 @@
 Last updated: 2026-07-06.
 
 Base public HEAD before this digest refresh:
-`e79185c94dfcecc28cbe9fb4b91367501a71b382`.
+`b636c528bdff97264ae5b93421750bd05d310baa`.
 
 ## Import
 
@@ -156,17 +156,22 @@ The following are explicit hypotheses, not proved structures:
 * `ConnesKreimer.hasConnesKreimerHopfAlgebra_iff_hasRawHopfAlgebra`
 * `ConnesKreimer.AdmissibleCutData`
 * `ConnesKreimer.HasAdmissibleCutData`
+* `ConnesKreimer.hasAdmissibleCutData_iff_nonempty`
 
-Current interface caveat: all six names above are `Nonempty` wrappers around
-Mathlib structure classes on the polynomial algebra.  The `HasRaw...` names are
-the preferred exact names when this rawness matters.  The legacy
+Current interface caveat: the three `HasRaw...` names and the three legacy
+compatibility names are `Nonempty` wrappers around Mathlib structure classes on
+the polynomial algebra.  The `HasRaw...` names are the preferred exact names
+when this rawness matters.  The legacy
 Connes-Kreimer/admissible-cut names remain compatibility aliases, but they do
 not by themselves characterize the admissible-cut coproduct.  Issue #29 tracks
 whether the legacy names should eventually be tied to the data-bearing
 contract.  `ConnesKreimer.AdmissibleCutData` is now the consumable stricter
 shape, but it is only a data contract: main does not prove that such data exist.
 The three `..._iff_hasRaw...` helpers expose this alias relationship directly
-and are covered by the import oracle.
+and are covered by the import oracle.  The data-contract helper
+`ConnesKreimer.hasAdmissibleCutData_iff_nonempty` similarly exposes that
+`ConnesKreimer.HasAdmissibleCutData R P` is exactly nonemptiness of
+`ConnesKreimer.AdmissibleCutData P R`.
 
 ## Current Interface Blocker
 
@@ -187,9 +192,11 @@ The import oracle covers only that alias relation via
 The missing mathematical payload for M1 is an existence theorem and downstream
 contract decision for the data-bearing admissible-cut API.  Main now exposes
 `ConnesKreimer.AdmissibleCutData` and `ConnesKreimer.HasAdmissibleCutData` as
-the shape to satisfy, while the raw aliases remain explicitly raw.  The next
-interface-change PR should decide whether the legacy admissible-cut names depend
-on this data or stay as compatibility aliases.
+the shape to satisfy, plus
+`ConnesKreimer.hasAdmissibleCutData_iff_nonempty` as the wrapper audit.  The
+raw aliases remain explicitly raw.  The next interface-change PR should decide
+whether the legacy admissible-cut names depend on this data or stay as
+compatibility aliases.
 
 ## What the Mother Repository Can Consume Today
 

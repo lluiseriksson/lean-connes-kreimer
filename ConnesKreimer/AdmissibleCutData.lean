@@ -56,4 +56,11 @@ abbrev HasAdmissibleCutData (R : Type v) [CommRing R] (P : GraftingProvider.{u})
     Prop :=
   Nonempty (AdmissibleCutData P R)
 
+/-- The data-bearing admissible-cut hypothesis is exactly nonemptiness of the
+explicit `AdmissibleCutData` contract. -/
+theorem hasAdmissibleCutData_iff_nonempty
+    (R : Type v) [CommRing R] (P : GraftingProvider.{u}) :
+    HasAdmissibleCutData R P ↔ Nonempty (AdmissibleCutData P R) :=
+  Iff.rfl
+
 end ConnesKreimer

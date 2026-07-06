@@ -1,9 +1,9 @@
 # Mother-Facing Interface Digest
 
-Last updated: 2026-07-05.
+Last updated: 2026-07-06.
 
 Base public HEAD before this digest refresh:
-`f67d7d03b849509c0c303339444f064def5ffdf9`.
+`a90c90b0ae8d9dab7941624157ce6a1ceb8bd4a2`.
 
 ## Import
 
@@ -125,6 +125,8 @@ Closed grafting lemmas:
 * `ConnesKreimer.GraftingProvider.vertices_lt_vertices_graft_single_one`
 * `ConnesKreimer.GraftingProvider.vertices_graft_single_one_ne_zero`
 * `ConnesKreimer.GraftingProvider.vertices_graft_eq_one_iff_vertexCount_zero`
+* `ConnesKreimer.GraftingProvider.vertices_graft_single_eq_one_iff_mul_vertices_eq_zero`
+* `ConnesKreimer.GraftingProvider.vertices_graft_single_one_eq_one_iff_vertices_eq_zero`
 * `ConnesKreimer.GraftingProvider.one_lt_vertices_graft_iff_vertexCount_pos`
 * `ConnesKreimer.GraftingProvider.one_lt_vertices_graft_single_iff_mul_vertices_pos`
 * `ConnesKreimer.GraftingProvider.one_lt_vertices_graft_single_one_iff_vertices_pos`
@@ -206,8 +208,13 @@ expose that the graft target has more vertices than its source forest or
 single-tree source.  The
 criterion
 `ConnesKreimer.GraftingProvider.vertices_graft_eq_one_iff_vertexCount_zero`
-isolates the one-vertex graft case using only the provider vertex-count law,
+isolates the one-vertex graft case using only the provider vertex-count law.
+Its singleton specializations
+`ConnesKreimer.GraftingProvider.vertices_graft_single_eq_one_iff_mul_vertices_eq_zero`
 and
+`ConnesKreimer.GraftingProvider.vertices_graft_single_one_eq_one_iff_vertices_eq_zero`
+give that boundary guard directly for one named source.  The complementary
+criterion
 `ConnesKreimer.GraftingProvider.one_lt_vertices_graft_iff_vertexCount_pos`
 exposes the complementary guard that a graft has more than the new root exactly
 when the source forest has positive vertex count.  Its singleton

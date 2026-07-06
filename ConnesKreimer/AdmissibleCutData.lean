@@ -117,6 +117,17 @@ theorem counit_graftOperator_forestMonomial {P : GraftingProvider.{u}}
   rw [D.graftOperator_forestMonomial f]
   exact D.counit_graft f
 
+/-- The counit kills the linear graft operator on tree generators.
+
+This is the singleton-tree-generator specialization of
+`counit_graftOperator_forestMonomial`, with the same data-only status. -/
+@[simp]
+theorem counit_graftOperator_treeGenerator {P : GraftingProvider.{u}}
+    (D : AdmissibleCutData P R) (t : P.Tree) :
+    D.counit (D.graftOperator (treeGenerator R t)) = 0 := by
+  rw [D.graftOperator_treeGenerator t]
+  exact D.counit_graft (Finsupp.single t 1)
+
 /-- The supplied coproduct satisfies the `B_+` 1-cocycle equation on the
 normalized forest-monomial output of the graft operator.
 
@@ -130,6 +141,21 @@ theorem coproduct_graftOperator_forestMonomial {P : GraftingProvider.{u}}
             (D.coproduct (forestMonomial R f)) := by
   rw [D.graftOperator_forestMonomial f]
   exact D.cocycle f
+
+/-- The supplied coproduct satisfies the `B_+` 1-cocycle equation on the
+normalized tree-generator output of the graft operator.
+
+This is the singleton-tree-generator specialization of
+`coproduct_graftOperator_forestMonomial`, with no existence claim for the
+underlying admissible-cut data. -/
+theorem coproduct_graftOperator_treeGenerator {P : GraftingProvider.{u}}
+    (D : AdmissibleCutData P R) (t : P.Tree) :
+    D.coproduct (D.graftOperator (treeGenerator R t))
+      = (D.graftOperator (treeGenerator R t)) ⊗ₜ[R] 1
+        + (TensorProduct.map LinearMap.id D.graftOperator)
+            (D.coproduct (treeGenerator R t)) := by
+  rw [treeGenerator_eq_forestMonomial_single_one]
+  exact D.coproduct_graftOperator_forestMonomial (Finsupp.single t 1)
 
 end AdmissibleCutData
 

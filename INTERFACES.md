@@ -124,7 +124,9 @@ Data-bearing admissible-cut contract:
 * `ConnesKreimer.AdmissibleCutData.graftOperator_forestMonomial`
 * `ConnesKreimer.AdmissibleCutData.graftOperator_treeGenerator`
 * `ConnesKreimer.AdmissibleCutData.counit_graftOperator_forestMonomial`
+* `ConnesKreimer.AdmissibleCutData.counit_graftOperator_treeGenerator`
 * `ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_forestMonomial`
+* `ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_treeGenerator`
 
 Current caveat: the raw and legacy names above are `Nonempty` wrappers around
 Mathlib structure classes on `RootedTreeProvider.Algebra R P`.  They do not by
@@ -142,11 +144,15 @@ coefficient-one `forestMonomial` case of the linear `B_+` operator;
 `ConnesKreimer.AdmissibleCutData.graftOperator_treeGenerator` exposes the
 singleton-tree-generator case via the closed M0 bridge; and
 `ConnesKreimer.AdmissibleCutData.counit_graftOperator_forestMonomial` exposes
-the corresponding counit-zero wrapper.  The wrapper
+the corresponding counit-zero wrapper, while
+`ConnesKreimer.AdmissibleCutData.counit_graftOperator_treeGenerator`
+specializes that zero wrapper to named tree generators.  The wrapper
 `ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_forestMonomial`
 exposes the supplied `B_+` 1-cocycle equation on the normalized
-forest-monomial output of the graft operator.  Main still proves no existence theorem
-for this data.
+forest-monomial output of the graft operator, and
+`ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_treeGenerator`
+specializes the same equation to named tree generators.  Main still proves no
+existence theorem for this data.
 Issue #29 tracks whether legacy aliases should eventually depend on this data
 or remain permanently raw.
 

@@ -63,4 +63,19 @@ theorem hasAdmissibleCutData_iff_nonempty
     HasAdmissibleCutData R P ↔ Nonempty (AdmissibleCutData P R) :=
   Iff.rfl
 
+namespace AdmissibleCutData
+
+/-- The linear graft operator sends the normalized forest monomial to the
+corresponding graft generator.
+
+This is a consumer-facing wrapper around `graftOperator_monomial` for the
+coefficient-one monomial supplied by `forestMonomial`. -/
+@[simp]
+theorem graftOperator_forestMonomial {P : GraftingProvider.{u}}
+    (D : AdmissibleCutData P R) (f : ConnesKreimer.Forest P.Tree) :
+    D.graftOperator (forestMonomial R f) = P.graftGenerator R f := by
+  simpa [forestMonomial] using D.graftOperator_monomial f (1 : R)
+
+end AdmissibleCutData
+
 end ConnesKreimer

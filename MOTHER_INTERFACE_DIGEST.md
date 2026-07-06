@@ -3,7 +3,7 @@
 Last updated: 2026-07-06.
 
 Base public HEAD before this digest refresh:
-`9d8a4d4a09e94063b2c7e586176ae6928a6b5889`.
+`c800dd45bafe6d7f5dadb1752ed2986466cbeb28`.
 
 ## Import
 
@@ -158,6 +158,7 @@ The following are explicit hypotheses, not proved structures:
 * `ConnesKreimer.HasAdmissibleCutData`
 * `ConnesKreimer.hasAdmissibleCutData_iff_nonempty`
 * `ConnesKreimer.AdmissibleCutData.graftOperator_forestMonomial`
+* `ConnesKreimer.AdmissibleCutData.graftOperator_treeGenerator`
 * `ConnesKreimer.AdmissibleCutData.counit_graftOperator_forestMonomial`
 * `ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_forestMonomial`
 
@@ -178,6 +179,9 @@ and are covered by the import oracle.  The data-contract helper
 `ConnesKreimer.AdmissibleCutData.graftOperator_forestMonomial` exposes that the
 linear graft operator sends the normalized forest monomial to the corresponding
 graft generator.  The wrapper
+`ConnesKreimer.AdmissibleCutData.graftOperator_treeGenerator` exposes the
+same supplied linear graft operator on a named tree generator by using the
+closed singleton forest bridge.  The wrapper
 `ConnesKreimer.AdmissibleCutData.counit_graftOperator_forestMonomial` exposes
 that the supplied counit kills that normalized graft-operator output.  The
 wrapper `ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_forestMonomial`
@@ -205,6 +209,7 @@ contract decision for the data-bearing admissible-cut API.  Main now exposes
 the shape to satisfy, plus
 `ConnesKreimer.hasAdmissibleCutData_iff_nonempty` and
 `ConnesKreimer.AdmissibleCutData.graftOperator_forestMonomial` and
+`ConnesKreimer.AdmissibleCutData.graftOperator_treeGenerator` and
 `ConnesKreimer.AdmissibleCutData.counit_graftOperator_forestMonomial` and
 `ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_forestMonomial` as
 wrapper audits.  The raw aliases remain explicitly raw.  The next interface-change PR
@@ -298,6 +303,9 @@ forest monomial.  If a downstream consumer supplies an
 `ConnesKreimer.AdmissibleCutData.graftOperator_forestMonomial` rewrites its
 linear graft operator on `forestMonomial R f` to `P.graftGenerator R f` without
 unfolding the coefficient-one monomial field.  The wrapper
+`ConnesKreimer.AdmissibleCutData.graftOperator_treeGenerator` rewrites the same
+operator on `treeGenerator R t` to the graft generator for the singleton
+forest `Finsupp.single t 1`, without unfolding the singleton bridge.  The wrapper
 `ConnesKreimer.AdmissibleCutData.counit_graftOperator_forestMonomial` then
 rewrites the supplied counit on that graft-operator output to zero, again
 without unfolding the data fields.  The wrapper

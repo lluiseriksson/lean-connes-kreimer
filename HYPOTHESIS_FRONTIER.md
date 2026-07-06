@@ -33,6 +33,8 @@ The helper `hasAdmissibleCutData_iff_nonempty` exposes only that
 `HasAdmissibleCutData` is the nonempty wrapper around this data contract.
 The wrapper `AdmissibleCutData.graftOperator_forestMonomial` exposes only the
 coefficient-one `forestMonomial` case of the data field `graftOperator_monomial`.
+The wrapper `AdmissibleCutData.graftOperator_treeGenerator` exposes the
+singleton tree-generator case derived from that field and the closed M0 bridge.
 The wrapper `AdmissibleCutData.counit_graftOperator_forestMonomial` combines
 that normalized graft-operator case with the supplied `counit_graft` field.
 The wrapper `AdmissibleCutData.coproduct_graftOperator_forestMonomial` combines
@@ -67,6 +69,8 @@ Grafting layer (`Grafting.lean`):
 * `hasAdmissibleCutData_iff_nonempty` (definitional audit for the data wrapper).
 * `AdmissibleCutData.graftOperator_forestMonomial` (closed wrapper for the
   normalized forest-monomial case of the graft operator field).
+* `AdmissibleCutData.graftOperator_treeGenerator` (closed wrapper for the
+  singleton tree-generator case of the graft operator field).
 * `AdmissibleCutData.counit_graftOperator_forestMonomial` (closed wrapper for
   the counit-zero consequence on normalized forest monomials).
 * `AdmissibleCutData.coproduct_graftOperator_forestMonomial` (closed wrapper

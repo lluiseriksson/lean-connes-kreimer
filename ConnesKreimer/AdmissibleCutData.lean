@@ -105,6 +105,20 @@ theorem graftOperator_smul_forestMonomial {P : GraftingProvider.{u}}
     D.graftOperator (a • forestMonomial R f) = a • P.graftGenerator R f := by
   rw [map_smul, D.graftOperator_forestMonomial f]
 
+/-- The linear graft operator sends sums of normalized forest monomials to sums
+of the corresponding graft generators.
+
+This is a consumer-facing wrapper around linearity plus
+`graftOperator_forestMonomial`; downstream code can handle two-term forest
+bookkeeping without unfolding the supplied linear map. -/
+@[simp]
+theorem graftOperator_add_forestMonomial {P : GraftingProvider.{u}}
+    (D : AdmissibleCutData P R) (f g : ConnesKreimer.Forest P.Tree) :
+    D.graftOperator (forestMonomial R f + forestMonomial R g)
+      = P.graftGenerator R f + P.graftGenerator R g := by
+  rw [map_add, D.graftOperator_forestMonomial f,
+    D.graftOperator_forestMonomial g]
+
 /-- The linear graft operator sends a tree generator to the graft generator
 for the singleton forest containing that tree.
 

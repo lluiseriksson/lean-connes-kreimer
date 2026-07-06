@@ -28,6 +28,10 @@ example (f g : Forest Tree) :
     forestMonomial R (f + g) = forestMonomial R f * forestMonomial R g :=
   forestMonomial_add (R := R) f g
 
+example (t : Tree) (m : Nat) :
+    forestMonomial R (Finsupp.single t m : Forest Tree) = treeGenerator R t ^ m :=
+  forestMonomial_single (R := R) t m
+
 example (vertices : Tree -> Nat) (t : Tree) :
     IsHomogeneousVertexDegree (R := R) vertices (vertices t) (treeGenerator R t) :=
   isHomogeneousVertexDegree_treeGenerator (R := R) vertices t

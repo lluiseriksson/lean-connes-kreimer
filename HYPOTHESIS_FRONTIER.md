@@ -1,6 +1,6 @@
 # Hypothesis Frontier
 
-Last updated: 2026-07-03 (second iteration).
+Last updated: 2026-07-06.
 
 ## Current main branch
 
@@ -12,16 +12,20 @@ Last updated: 2026-07-03 (second iteration).
 
 ## Explicit hypotheses exposed by `ConnesKreimer.Interfaces`
 
-Unchanged: `HasAdmissibleCutCoalgebra`, `HasConnesKreimerBialgebra`,
-`HasConnesKreimerHopfAlgebra` remain propositions taken as explicit
-arguments downstream.
+Raw placeholders: `HasRawCoalgebra`, `HasRawBialgebra`, and
+`HasRawHopfAlgebra` are propositions taken as explicit arguments downstream
+when an unspecified Mathlib structure class is all that is being assumed.
 
-INTERFACE FINDING (flagged, contract untouched): these hypotheses are
-`Nonempty` of a structure class, so any coalgebra/bialgebra/Hopf structure
-on `MvPolynomial Tree R` witnesses them, not only the admissible-cut one.
-The frontier structure `AdmissibleCutData` pins the coproduct by the `B_+`
-1-cocycle equation; re-expressing the contract through it requires the
-Interface-Change ritual and is the Revisor's call.
+Compatibility aliases: `HasAdmissibleCutCoalgebra`,
+`HasConnesKreimerBialgebra`, and `HasConnesKreimerHopfAlgebra` currently expand
+to the corresponding raw placeholders.
+
+INTERFACE FINDING (tracked by issue #29): all six names above are `Nonempty`
+of a structure class, so any coalgebra/bialgebra/Hopf structure on
+`MvPolynomial Tree R` witnesses them, not only the admissible-cut one.  The
+frontier structure `AdmissibleCutData` pins the coproduct by the `B_+`
+1-cocycle equation; re-expressing the contract through it remains the next
+Interface-Change decision.
 
 ## Closed facts on `main`
 

@@ -96,9 +96,22 @@ digest.
 
 ### Explicit frontier hypotheses
 
+Raw Mathlib-structure placeholders:
+
+* `ConnesKreimer.HasRawCoalgebra`
+* `ConnesKreimer.HasRawBialgebra`
+* `ConnesKreimer.HasRawHopfAlgebra`
+
+Legacy compatibility names for the same raw placeholders:
+
 * `ConnesKreimer.HasAdmissibleCutCoalgebra`
 * `ConnesKreimer.HasConnesKreimerBialgebra`
 * `ConnesKreimer.HasConnesKreimerHopfAlgebra`
+
+Current caveat: these names are `Nonempty` wrappers around Mathlib structure
+classes on `RootedTreeProvider.Algebra R P`.  They do not by themselves pin the
+Connes-Kreimer admissible-cut coproduct.  Issue #29 tracks the future
+data-bearing admissible-cut contract.
 
 ## Breaking-change policy
 

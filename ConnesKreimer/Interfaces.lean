@@ -40,25 +40,47 @@ abbrev Forest (P : RootedTreeProvider.{u}) : Type u :=
 
 end RootedTreeProvider
 
-/-- Explicit frontier hypothesis for the admissible-cut coalgebra laws.
+/-- Raw frontier hypothesis for an unspecified Mathlib coalgebra structure.
 
-Supplying this is stronger than giving a raw comultiplication: it must already
-be a Mathlib `Coalgebra` on the polynomial algebra. -/
-abbrev HasAdmissibleCutCoalgebra (R : Type v) [CommSemiring R]
+This deliberately does not identify the structure with the admissible-cut
+coproduct.  It is useful as a precise name for the current raw M1 placeholder
+while the admissible-cut contract remains frontier work. -/
+abbrev HasRawCoalgebra (R : Type v) [CommSemiring R]
     (P : RootedTreeProvider.{u}) : Prop :=
   Nonempty (Coalgebra R (RootedTreeProvider.Algebra R P))
 
-/-- Explicit frontier hypothesis for the Connes-Kreimer bialgebra laws.
-
-This packages counit, admissible-cut coproduct, coassociativity, and algebra
-compatibility using Mathlib's `Bialgebra`. -/
-abbrev HasConnesKreimerBialgebra (R : Type v) [CommSemiring R]
+/-- Raw frontier hypothesis for an unspecified Mathlib bialgebra structure. -/
+abbrev HasRawBialgebra (R : Type v) [CommSemiring R]
     (P : RootedTreeProvider.{u}) : Prop :=
   Nonempty (Bialgebra R (RootedTreeProvider.Algebra R P))
 
-/-- Explicit frontier hypothesis for the antipode/Hopf structure. -/
-abbrev HasConnesKreimerHopfAlgebra (R : Type v) [CommSemiring R]
+/-- Raw frontier hypothesis for an unspecified Mathlib Hopf algebra structure. -/
+abbrev HasRawHopfAlgebra (R : Type v) [CommSemiring R]
     (P : RootedTreeProvider.{u}) : Prop :=
   Nonempty (HopfAlgebra R (RootedTreeProvider.Algebra R P))
+
+/-- Legacy name for the raw coalgebra placeholder.
+
+This is not yet a pinned admissible-cut contract: any Mathlib `Coalgebra` on
+the polynomial algebra witnesses it.  Use `HasRawCoalgebra` when that rawness
+matters explicitly; reserve a future data-bearing admissible-cut contract for
+the M1 interface-change tracked in issue #29. -/
+abbrev HasAdmissibleCutCoalgebra (R : Type v) [CommSemiring R]
+    (P : RootedTreeProvider.{u}) : Prop :=
+  HasRawCoalgebra R P
+
+/-- Legacy name for the raw Connes-Kreimer bialgebra placeholder.
+
+This packages counit, admissible-cut coproduct, coassociativity, and algebra
+compatibility only if the supplied Mathlib `Bialgebra` is known separately to
+be the Connes-Kreimer one. -/
+abbrev HasConnesKreimerBialgebra (R : Type v) [CommSemiring R]
+    (P : RootedTreeProvider.{u}) : Prop :=
+  HasRawBialgebra R P
+
+/-- Legacy name for the raw Connes-Kreimer Hopf-algebra placeholder. -/
+abbrev HasConnesKreimerHopfAlgebra (R : Type v) [CommSemiring R]
+    (P : RootedTreeProvider.{u}) : Prop :=
+  HasRawHopfAlgebra R P
 
 end ConnesKreimer

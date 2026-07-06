@@ -150,6 +150,9 @@ The following are explicit hypotheses, not proved structures:
 * `ConnesKreimer.HasAdmissibleCutCoalgebra`
 * `ConnesKreimer.HasConnesKreimerBialgebra`
 * `ConnesKreimer.HasConnesKreimerHopfAlgebra`
+* `ConnesKreimer.hasAdmissibleCutCoalgebra_iff_hasRawCoalgebra`
+* `ConnesKreimer.hasConnesKreimerBialgebra_iff_hasRawBialgebra`
+* `ConnesKreimer.hasConnesKreimerHopfAlgebra_iff_hasRawHopfAlgebra`
 
 Current interface caveat: all six names above are `Nonempty` wrappers around
 Mathlib structure classes on the polynomial algebra.  The `HasRaw...` names are
@@ -159,6 +162,8 @@ not by themselves characterize the admissible-cut coproduct.  Issue #29 tracks
 the future data-bearing contract; the statement-first branch `frontier/M1`
 contains `AdmissibleCutData` as the proposed stricter shape, but that branch is
 not a consumable mainline interface.
+The three `..._iff_hasRaw...` helpers expose this alias relationship directly
+and are covered by the import oracle.
 
 ## What the Mother Repository Can Consume Today
 

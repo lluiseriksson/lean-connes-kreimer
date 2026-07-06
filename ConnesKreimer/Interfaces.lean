@@ -83,4 +83,25 @@ abbrev HasConnesKreimerHopfAlgebra (R : Type v) [CommSemiring R]
     (P : RootedTreeProvider.{u}) : Prop :=
   HasRawHopfAlgebra R P
 
+/-- The legacy admissible-cut coalgebra name is exactly the raw coalgebra
+placeholder on `main`; it does not add a pinned admissible-cut coproduct. -/
+theorem hasAdmissibleCutCoalgebra_iff_hasRawCoalgebra
+    (R : Type v) [CommSemiring R] (P : RootedTreeProvider.{u}) :
+    HasAdmissibleCutCoalgebra R P ↔ HasRawCoalgebra R P :=
+  Iff.rfl
+
+/-- The legacy Connes-Kreimer bialgebra name is exactly the raw bialgebra
+placeholder on `main`; it does not add bialgebra compatibility data. -/
+theorem hasConnesKreimerBialgebra_iff_hasRawBialgebra
+    (R : Type v) [CommSemiring R] (P : RootedTreeProvider.{u}) :
+    HasConnesKreimerBialgebra R P ↔ HasRawBialgebra R P :=
+  Iff.rfl
+
+/-- The legacy Connes-Kreimer Hopf-algebra name is exactly the raw Hopf
+placeholder on `main`; it does not add antipode construction data. -/
+theorem hasConnesKreimerHopfAlgebra_iff_hasRawHopfAlgebra
+    (R : Type v) [CommSemiring R] (P : RootedTreeProvider.{u}) :
+    HasConnesKreimerHopfAlgebra R P ↔ HasRawHopfAlgebra R P :=
+  Iff.rfl
+
 end ConnesKreimer

@@ -108,6 +108,12 @@ Legacy compatibility names for the same raw placeholders:
 * `ConnesKreimer.HasConnesKreimerBialgebra`
 * `ConnesKreimer.HasConnesKreimerHopfAlgebra`
 
+Alias-audit helpers:
+
+* `ConnesKreimer.hasAdmissibleCutCoalgebra_iff_hasRawCoalgebra`
+* `ConnesKreimer.hasConnesKreimerBialgebra_iff_hasRawBialgebra`
+* `ConnesKreimer.hasConnesKreimerHopfAlgebra_iff_hasRawHopfAlgebra`
+
 Current caveat: these names are `Nonempty` wrappers around Mathlib structure
 classes on `RootedTreeProvider.Algebra R P`.  They do not by themselves pin the
 Connes-Kreimer admissible-cut coproduct.  Issue #29 tracks the future

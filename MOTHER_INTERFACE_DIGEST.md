@@ -2,8 +2,14 @@
 
 Last updated: 2026-07-06.
 
-Base public HEAD before this digest refresh:
-`e27b447f813237a1cc8180ba8427aaf08e210e9a`.
+Audited public HEAD for this digest:
+`7afe5f4764b40a995e2d999af29d4df148db208a`
+(`audit grafting count imports (#41)`).
+
+Latest observed `main` CI for this HEAD:
+
+* Lean: success, run `28805928821`.
+* Heartbeat: success, scheduled run `28806937440`.
 
 ## Import
 
@@ -24,6 +30,15 @@ This root import currently re-exports the closed-proof M0 surface:
 Consumability oracle: `ConnesKreimer.ImportOracle` is built with the library
 and imports only `Interfaces` before checking representative closed M0 names.
 It is an internal build check, not an additional consumer-facing import path.
+At this audited HEAD, the oracle also checks the documented graft-count guard
+names added through PR #41, including
+`ConnesKreimer.GraftingProvider.vertices_graft_single`,
+`ConnesKreimer.GraftingProvider.vertices_graft_single_pos`,
+`ConnesKreimer.GraftingProvider.vertices_graft_ne_zero`,
+`ConnesKreimer.GraftingProvider.vertexCount_lt_vertices_graft`,
+`ConnesKreimer.GraftingProvider.vertices_graft_eq_one_iff_vertexCount_zero`,
+and
+`ConnesKreimer.GraftingProvider.vertices_graft_eq_iff_vertexCount_eq`.
 
 There is still no direct import from THE-ERIKSSON-PROGRAMME into this
 satellite, and this satellite should not be imported by the mother repository

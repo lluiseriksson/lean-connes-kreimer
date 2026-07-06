@@ -3,7 +3,7 @@
 Last updated: 2026-07-06.
 
 Base public HEAD before this digest refresh:
-`83c4c0f4a85f532b3d38920ea4d96c4034122f26`.
+`1c2272db2af0af2a6dfe89effe6f75efc407d2b7`.
 
 ## Import
 
@@ -144,15 +144,21 @@ or `[DecidableEq P.Tree]`; this is explicit in the theorem signatures.
 
 The following are explicit hypotheses, not proved structures:
 
+* `ConnesKreimer.HasRawCoalgebra`
+* `ConnesKreimer.HasRawBialgebra`
+* `ConnesKreimer.HasRawHopfAlgebra`
 * `ConnesKreimer.HasAdmissibleCutCoalgebra`
 * `ConnesKreimer.HasConnesKreimerBialgebra`
 * `ConnesKreimer.HasConnesKreimerHopfAlgebra`
 
-Current interface caveat: these are `Nonempty` wrappers around Mathlib
-structure classes on the polynomial algebra.  They do not by themselves
-characterize the admissible-cut coproduct.  The statement-first branch
-`frontier/M1` contains `AdmissibleCutData` as the proposed stricter contract,
-but that branch is not a consumable mainline interface.
+Current interface caveat: all six names above are `Nonempty` wrappers around
+Mathlib structure classes on the polynomial algebra.  The `HasRaw...` names are
+the preferred exact names when this rawness matters.  The legacy
+Connes-Kreimer/admissible-cut names remain compatibility aliases, but they do
+not by themselves characterize the admissible-cut coproduct.  Issue #29 tracks
+the future data-bearing contract; the statement-first branch `frontier/M1`
+contains `AdmissibleCutData` as the proposed stricter shape, but that branch is
+not a consumable mainline interface.
 
 ## What the Mother Repository Can Consume Today
 

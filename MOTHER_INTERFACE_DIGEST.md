@@ -176,10 +176,13 @@ The following are explicit hypotheses, not proved structures:
 * `ConnesKreimer.hasAdmissibleCutCoalgebraContract_iff_hasAdmissibleCutData`
 * `ConnesKreimer.AdmissibleCutData.graftOperator_forestMonomial`
 * `ConnesKreimer.AdmissibleCutData.graftOperator_treeGenerator`
+* `ConnesKreimer.AdmissibleCutData.graftOperator_one`
 * `ConnesKreimer.AdmissibleCutData.counit_graftOperator_forestMonomial`
 * `ConnesKreimer.AdmissibleCutData.counit_graftOperator_treeGenerator`
+* `ConnesKreimer.AdmissibleCutData.counit_graftOperator_one`
 * `ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_forestMonomial`
 * `ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_treeGenerator`
+* `ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_one`
 
 Current interface caveat: the three `HasRaw...` names and the three legacy
 compatibility names are `Nonempty` wrappers around Mathlib structure classes on
@@ -206,10 +209,16 @@ graft generator.  The wrapper
 `ConnesKreimer.AdmissibleCutData.graftOperator_treeGenerator` exposes the
 same supplied linear graft operator on a named tree generator by using the
 closed singleton forest bridge.  The wrapper
+`ConnesKreimer.AdmissibleCutData.graftOperator_one` exposes the same supplied
+operator on the unit, viewed as the empty-forest monomial.  The wrapper
 `ConnesKreimer.AdmissibleCutData.counit_graftOperator_forestMonomial` exposes
-that the supplied counit kills that normalized graft-operator output.  The
-wrapper `ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_forestMonomial`
-exposes the supplied `B_+` 1-cocycle equation on the same normalized output.
+that the supplied counit kills that normalized graft-operator output; the
+unit case is exposed by
+`ConnesKreimer.AdmissibleCutData.counit_graftOperator_one`.  The wrapper
+`ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_forestMonomial`
+exposes the supplied `B_+` 1-cocycle equation on the same normalized output;
+the unit case is exposed by
+`ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_one`.
 
 ## Current Interface Blocker
 
@@ -236,12 +245,15 @@ the shape to satisfy, plus
 `ConnesKreimer.hasAdmissibleCutCoalgebraContract_iff_hasAdmissibleCutData` and
 `ConnesKreimer.AdmissibleCutData.graftOperator_forestMonomial` and
 `ConnesKreimer.AdmissibleCutData.graftOperator_treeGenerator` and
+`ConnesKreimer.AdmissibleCutData.graftOperator_one` and
 `ConnesKreimer.AdmissibleCutData.counit_graftOperator_forestMonomial` and
 `ConnesKreimer.AdmissibleCutData.counit_graftOperator_treeGenerator` and
+`ConnesKreimer.AdmissibleCutData.counit_graftOperator_one` and
 `ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_forestMonomial` and
-`ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_treeGenerator` as
-wrapper audits.  The raw aliases remain explicitly raw; consumers that want a
-pinned admissible-cut interface should use
+`ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_treeGenerator` and
+`ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_one` as wrapper
+audits.  The raw aliases remain explicitly raw; consumers that want a pinned
+admissible-cut interface should use
 `HasAdmissibleCutCoalgebraContract`, not the legacy raw alias.
 
 ## What the Mother Repository Can Consume Today
@@ -333,16 +345,23 @@ linear graft operator on `forestMonomial R f` to `P.graftGenerator R f` without
 unfolding the coefficient-one monomial field.  The wrapper
 `ConnesKreimer.AdmissibleCutData.graftOperator_treeGenerator` rewrites the same
 operator on `treeGenerator R t` to the graft generator for the singleton
-forest `Finsupp.single t 1`, without unfolding the singleton bridge.  The wrapper
+forest `Finsupp.single t 1`, without unfolding the singleton bridge.  The
+unit wrapper `ConnesKreimer.AdmissibleCutData.graftOperator_one` rewrites the
+same operator on `1 : CKAlgebra R P.Tree` to the empty-forest graft generator.
+The wrapper
 `ConnesKreimer.AdmissibleCutData.counit_graftOperator_forestMonomial` then
 rewrites the supplied counit on that graft-operator output to zero, again
 without unfolding the data fields.  The singleton-tree wrapper
 `ConnesKreimer.AdmissibleCutData.counit_graftOperator_treeGenerator` gives the
-same counit-zero fact directly for `treeGenerator R t`.  The wrapper
+same counit-zero fact directly for `treeGenerator R t`, and
+`ConnesKreimer.AdmissibleCutData.counit_graftOperator_one` gives it directly
+for the unit.  The wrapper
 `ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_forestMonomial`
 rewrites the supplied coproduct on that same normalized output to the supplied
 `B_+` 1-cocycle right-hand side, and
 `ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_treeGenerator` gives
-the same equation directly for `treeGenerator R t`.  There is no proved
-admissible-cut data existence theorem on `main`, no bialgebra, no Hopf
-algebra, and no Yang-Mills renormalization claim.
+the same equation directly for `treeGenerator R t`.
+`ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_one` gives the same
+equation directly for the unit.  There is no proved admissible-cut data
+existence theorem on `main`, no bialgebra, no Hopf algebra, and no Yang-Mills
+renormalization claim.

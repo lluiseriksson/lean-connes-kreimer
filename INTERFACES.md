@@ -123,10 +123,13 @@ Data-bearing admissible-cut contract:
 * `ConnesKreimer.hasAdmissibleCutCoalgebraContract_iff_hasAdmissibleCutData`
 * `ConnesKreimer.AdmissibleCutData.graftOperator_forestMonomial`
 * `ConnesKreimer.AdmissibleCutData.graftOperator_treeGenerator`
+* `ConnesKreimer.AdmissibleCutData.graftOperator_one`
 * `ConnesKreimer.AdmissibleCutData.counit_graftOperator_forestMonomial`
 * `ConnesKreimer.AdmissibleCutData.counit_graftOperator_treeGenerator`
+* `ConnesKreimer.AdmissibleCutData.counit_graftOperator_one`
 * `ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_forestMonomial`
 * `ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_treeGenerator`
+* `ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_one`
 
 Current caveat: the raw and legacy names above are `Nonempty` wrappers around
 Mathlib structure classes on `RootedTreeProvider.Algebra R P`.  They do not by
@@ -143,16 +146,21 @@ contract is exactly `HasAdmissibleCutData`;
 coefficient-one `forestMonomial` case of the linear `B_+` operator;
 `ConnesKreimer.AdmissibleCutData.graftOperator_treeGenerator` exposes the
 singleton-tree-generator case via the closed M0 bridge; and
+`ConnesKreimer.AdmissibleCutData.graftOperator_one` exposes the empty-forest
+unit case;
 `ConnesKreimer.AdmissibleCutData.counit_graftOperator_forestMonomial` exposes
 the corresponding counit-zero wrapper, while
 `ConnesKreimer.AdmissibleCutData.counit_graftOperator_treeGenerator`
-specializes that zero wrapper to named tree generators.  The wrapper
+specializes that zero wrapper to named tree generators and
+`ConnesKreimer.AdmissibleCutData.counit_graftOperator_one` specializes it to
+the unit.  The wrapper
 `ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_forestMonomial`
 exposes the supplied `B_+` 1-cocycle equation on the normalized
 forest-monomial output of the graft operator, and
 `ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_treeGenerator`
-specializes the same equation to named tree generators.  Main still proves no
-existence theorem for this data.
+specializes the same equation to named tree generators, while
+`ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_one` specializes it
+to the unit.  Main still proves no existence theorem for this data.
 Issue #29 tracks whether legacy aliases should eventually depend on this data
 or remain permanently raw.
 

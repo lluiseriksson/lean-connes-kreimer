@@ -106,6 +106,15 @@ theorem graftOperator_treeGenerator {P : GraftingProvider.{u}}
   rw [treeGenerator_eq_forestMonomial_single_one]
   exact D.graftOperator_forestMonomial (Finsupp.single t 1)
 
+/-- The linear graft operator sends the unit, viewed as the empty forest
+monomial, to the graft generator of the empty forest. -/
+@[simp]
+theorem graftOperator_one {P : GraftingProvider.{u}}
+    (D : AdmissibleCutData P R) :
+    D.graftOperator (1 : CKAlgebra R P.Tree)
+      = P.graftGenerator R (0 : ConnesKreimer.Forest P.Tree) := by
+  simpa using D.graftOperator_forestMonomial (0 : ConnesKreimer.Forest P.Tree)
+
 /-- The counit kills the linear graft operator on normalized forest monomials.
 
 This is a consumer-facing wrapper combining `graftOperator_forestMonomial` with
@@ -127,6 +136,15 @@ theorem counit_graftOperator_treeGenerator {P : GraftingProvider.{u}}
     D.counit (D.graftOperator (treeGenerator R t)) = 0 := by
   rw [D.graftOperator_treeGenerator t]
   exact D.counit_graft (Finsupp.single t 1)
+
+/-- The counit kills the graft operator on the unit, equivalently on the
+empty-forest monomial. -/
+@[simp]
+theorem counit_graftOperator_one {P : GraftingProvider.{u}}
+    (D : AdmissibleCutData P R) :
+    D.counit (D.graftOperator (1 : CKAlgebra R P.Tree)) = 0 := by
+  rw [D.graftOperator_one]
+  exact D.counit_graft (0 : ConnesKreimer.Forest P.Tree)
 
 /-- The supplied coproduct satisfies the `B_+` 1-cocycle equation on the
 normalized forest-monomial output of the graft operator.
@@ -156,6 +174,18 @@ theorem coproduct_graftOperator_treeGenerator {P : GraftingProvider.{u}}
             (D.coproduct (treeGenerator R t)) := by
   rw [treeGenerator_eq_forestMonomial_single_one]
   exact D.coproduct_graftOperator_forestMonomial (Finsupp.single t 1)
+
+/-- The supplied coproduct satisfies the `B_+` 1-cocycle equation on the
+graft-operator output of the unit, equivalently the empty-forest monomial. -/
+theorem coproduct_graftOperator_one {P : GraftingProvider.{u}}
+    (D : AdmissibleCutData P R) :
+    D.coproduct (D.graftOperator (1 : CKAlgebra R P.Tree))
+      = (D.graftOperator (1 : CKAlgebra R P.Tree)) ⊗ₜ[R] 1
+        + (TensorProduct.map LinearMap.id D.graftOperator)
+            (D.coproduct (1 : CKAlgebra R P.Tree)) := by
+  simpa using
+    D.coproduct_graftOperator_forestMonomial
+      (0 : ConnesKreimer.Forest P.Tree)
 
 end AdmissibleCutData
 

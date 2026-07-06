@@ -123,6 +123,7 @@ Data-bearing admissible-cut contract:
 * `ConnesKreimer.hasAdmissibleCutCoalgebraContract_iff_hasAdmissibleCutData`
 * `ConnesKreimer.AdmissibleCutData.graftOperator_forestMonomial`
 * `ConnesKreimer.AdmissibleCutData.graftOperator_smul_forestMonomial`
+* `ConnesKreimer.AdmissibleCutData.graftOperator_add_forestMonomial`
 * `ConnesKreimer.AdmissibleCutData.graftOperator_treeGenerator`
 * `ConnesKreimer.AdmissibleCutData.graftOperator_one`
 * `ConnesKreimer.AdmissibleCutData.counit_graftOperator_forestMonomial`
@@ -147,6 +148,8 @@ contract is exactly `HasAdmissibleCutData`;
 coefficient-one `forestMonomial` case of the linear `B_+` operator;
 `ConnesKreimer.AdmissibleCutData.graftOperator_smul_forestMonomial` exposes the
 same supplied operator on scalar multiples of normalized forest monomials;
+`ConnesKreimer.AdmissibleCutData.graftOperator_add_forestMonomial` exposes the
+same supplied operator on two-term sums of normalized forest monomials;
 `ConnesKreimer.AdmissibleCutData.graftOperator_treeGenerator` exposes the
 singleton-tree-generator case via the closed M0 bridge; and
 `ConnesKreimer.AdmissibleCutData.graftOperator_one` exposes the empty-forest

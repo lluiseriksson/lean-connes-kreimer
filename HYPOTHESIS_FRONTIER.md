@@ -38,6 +38,9 @@ for consumers that need the pinned admissible-cut interface while legacy
 exactly `HasAdmissibleCutData`.
 The wrapper `AdmissibleCutData.graftOperator_forestMonomial` exposes only the
 coefficient-one `forestMonomial` case of the data field `graftOperator_monomial`.
+The wrapper `AdmissibleCutData.graftOperator_add_forestMonomial` exposes only
+the two-term additivity consequence of the supplied linear graft operator on
+normalized forest monomials.
 The wrapper `AdmissibleCutData.graftOperator_treeGenerator` exposes the
 singleton tree-generator case derived from that field and the closed M0 bridge.
 The wrapper `AdmissibleCutData.counit_graftOperator_forestMonomial` combines
@@ -79,6 +82,8 @@ Grafting layer (`Grafting.lean`):
   normalized forest-monomial case of the graft operator field).
 * `AdmissibleCutData.graftOperator_smul_forestMonomial` (closed wrapper for
   scalar multiples of normalized forest monomials under the graft operator).
+* `AdmissibleCutData.graftOperator_add_forestMonomial` (closed wrapper for
+  two-term sums of normalized forest monomials under the graft operator).
 * `AdmissibleCutData.graftOperator_treeGenerator` (closed wrapper for the
   singleton tree-generator case of the graft operator field).
 * `AdmissibleCutData.counit_graftOperator_forestMonomial` (closed wrapper for

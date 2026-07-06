@@ -3,7 +3,7 @@
 Last updated: 2026-07-06.
 
 Base public HEAD before this digest refresh:
-`1c2272db2af0af2a6dfe89effe6f75efc407d2b7`.
+`1f7b4f4442f03a081b662f523ab1b4b280d5c094`.
 
 ## Import
 
@@ -164,6 +164,28 @@ contains `AdmissibleCutData` as the proposed stricter shape, but that branch is
 not a consumable mainline interface.
 The three `..._iff_hasRaw...` helpers expose this alias relationship directly
 and are covered by the import oracle.
+
+## Current Interface Blocker
+
+Issue #29 is the active interface-change blocker.  The exact current source is
+`ConnesKreimer/Interfaces.lean`, where
+`ConnesKreimer.HasAdmissibleCutCoalgebra`,
+`ConnesKreimer.HasConnesKreimerBialgebra`, and
+`ConnesKreimer.HasConnesKreimerHopfAlgebra` are compatibility aliases for the
+raw placeholders
+`ConnesKreimer.HasRawCoalgebra`,
+`ConnesKreimer.HasRawBialgebra`, and
+`ConnesKreimer.HasRawHopfAlgebra`.
+The import oracle covers only that alias relation via
+`ConnesKreimer.hasAdmissibleCutCoalgebra_iff_hasRawCoalgebra`,
+`ConnesKreimer.hasConnesKreimerBialgebra_iff_hasRawBialgebra`, and
+`ConnesKreimer.hasConnesKreimerHopfAlgebra_iff_hasRawHopfAlgebra`.
+
+The missing API for M1 is a data-bearing admissible-cut contract.  The
+statement-first source named by the frontier is `AdmissibleCutData` on
+`frontier/M1`, but that branch is not a mainline consumable interface.  The next
+interface-change PR should either introduce that data shape on `main` or reserve
+the admissible-cut names for it while keeping the raw aliases explicit.
 
 ## What the Mother Repository Can Consume Today
 

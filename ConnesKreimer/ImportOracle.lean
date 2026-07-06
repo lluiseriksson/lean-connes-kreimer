@@ -16,6 +16,18 @@ universe u v
 
 variable {Tree : Type u} {R : Type v} [CommSemiring R] [DecidableEq Tree]
 
+example (P : RootedTreeProvider.{u}) :
+    HasAdmissibleCutCoalgebra R P ↔ HasRawCoalgebra R P :=
+  ConnesKreimer.hasAdmissibleCutCoalgebra_iff_hasRawCoalgebra R P
+
+example (P : RootedTreeProvider.{u}) :
+    HasConnesKreimerBialgebra R P ↔ HasRawBialgebra R P :=
+  ConnesKreimer.hasConnesKreimerBialgebra_iff_hasRawBialgebra R P
+
+example (P : RootedTreeProvider.{u}) :
+    HasConnesKreimerHopfAlgebra R P ↔ HasRawHopfAlgebra R P :=
+  ConnesKreimer.hasConnesKreimerHopfAlgebra_iff_hasRawHopfAlgebra R P
+
 example (t : Tree) :
     treeGenerator R t = forestMonomial R (Finsupp.single t 1 : Forest Tree) :=
   treeGenerator_eq_forestMonomial_single_one (R := R) t

@@ -18,7 +18,11 @@ when an unspecified Mathlib structure class is all that is being assumed.
 
 Compatibility aliases: `HasAdmissibleCutCoalgebra`,
 `HasConnesKreimerBialgebra`, and `HasConnesKreimerHopfAlgebra` currently expand
-to the corresponding raw placeholders.
+to the corresponding raw placeholders.  The helpers
+`hasAdmissibleCutCoalgebra_iff_hasRawCoalgebra`,
+`hasConnesKreimerBialgebra_iff_hasRawBialgebra`, and
+`hasConnesKreimerHopfAlgebra_iff_hasRawHopfAlgebra` expose those definitional
+alias relationships as public Lean theorems.
 
 INTERFACE FINDING (tracked by issue #29): all six names above are `Nonempty`
 of a structure class, so any coalgebra/bialgebra/Hopf structure on

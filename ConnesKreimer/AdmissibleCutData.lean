@@ -56,11 +56,28 @@ abbrev HasAdmissibleCutData (R : Type v) [CommRing R] (P : GraftingProvider.{u})
     Prop :=
   Nonempty (AdmissibleCutData P R)
 
+/-- Data-backed admissible-cut coalgebra contract.
+
+This is the explicit replacement target for consumers that need a pinned
+admissible-cut interface instead of the legacy raw `HasAdmissibleCutCoalgebra`
+placeholder.  It is only a data hypothesis: main still proves no existence
+theorem and constructs no Mathlib `Coalgebra` instance. -/
+abbrev HasAdmissibleCutCoalgebraContract
+    (R : Type v) [CommRing R] (P : GraftingProvider.{u}) : Prop :=
+  HasAdmissibleCutData R P
+
 /-- The data-bearing admissible-cut hypothesis is exactly nonemptiness of the
 explicit `AdmissibleCutData` contract. -/
 theorem hasAdmissibleCutData_iff_nonempty
     (R : Type v) [CommRing R] (P : GraftingProvider.{u}) :
     HasAdmissibleCutData R P ↔ Nonempty (AdmissibleCutData P R) :=
+  Iff.rfl
+
+/-- The data-backed admissible-cut coalgebra contract is exactly the explicit
+`HasAdmissibleCutData` hypothesis. -/
+theorem hasAdmissibleCutCoalgebraContract_iff_hasAdmissibleCutData
+    (R : Type v) [CommRing R] (P : GraftingProvider.{u}) :
+    HasAdmissibleCutCoalgebraContract R P ↔ HasAdmissibleCutData R P :=
   Iff.rfl
 
 namespace AdmissibleCutData

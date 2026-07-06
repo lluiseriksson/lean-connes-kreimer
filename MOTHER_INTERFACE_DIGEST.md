@@ -156,7 +156,9 @@ The following are explicit hypotheses, not proved structures:
 * `ConnesKreimer.hasConnesKreimerHopfAlgebra_iff_hasRawHopfAlgebra`
 * `ConnesKreimer.AdmissibleCutData`
 * `ConnesKreimer.HasAdmissibleCutData`
+* `ConnesKreimer.HasAdmissibleCutCoalgebraContract`
 * `ConnesKreimer.hasAdmissibleCutData_iff_nonempty`
+* `ConnesKreimer.hasAdmissibleCutCoalgebraContract_iff_hasAdmissibleCutData`
 * `ConnesKreimer.AdmissibleCutData.graftOperator_forestMonomial`
 * `ConnesKreimer.AdmissibleCutData.graftOperator_treeGenerator`
 * `ConnesKreimer.AdmissibleCutData.counit_graftOperator_forestMonomial`
@@ -175,7 +177,12 @@ The three `..._iff_hasRaw...` helpers expose this alias relationship directly
 and are covered by the import oracle.  The data-contract helper
 `ConnesKreimer.hasAdmissibleCutData_iff_nonempty` similarly exposes that
 `ConnesKreimer.HasAdmissibleCutData R P` is exactly nonemptiness of
-`ConnesKreimer.AdmissibleCutData P R`.  The wrapper
+`ConnesKreimer.AdmissibleCutData P R`.  The data-backed contract alias
+`ConnesKreimer.HasAdmissibleCutCoalgebraContract` is the explicit pinned
+replacement target for consumers that need admissible-cut data rather than the
+legacy raw `HasAdmissibleCutCoalgebra` placeholder, and
+`ConnesKreimer.hasAdmissibleCutCoalgebraContract_iff_hasAdmissibleCutData`
+exposes that it is exactly `HasAdmissibleCutData`.  The wrapper
 `ConnesKreimer.AdmissibleCutData.graftOperator_forestMonomial` exposes that the
 linear graft operator sends the normalized forest monomial to the corresponding
 graft generator.  The wrapper
@@ -208,13 +215,15 @@ contract decision for the data-bearing admissible-cut API.  Main now exposes
 `ConnesKreimer.AdmissibleCutData` and `ConnesKreimer.HasAdmissibleCutData` as
 the shape to satisfy, plus
 `ConnesKreimer.hasAdmissibleCutData_iff_nonempty` and
+`ConnesKreimer.HasAdmissibleCutCoalgebraContract` and
+`ConnesKreimer.hasAdmissibleCutCoalgebraContract_iff_hasAdmissibleCutData` and
 `ConnesKreimer.AdmissibleCutData.graftOperator_forestMonomial` and
 `ConnesKreimer.AdmissibleCutData.graftOperator_treeGenerator` and
 `ConnesKreimer.AdmissibleCutData.counit_graftOperator_forestMonomial` and
 `ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_forestMonomial` as
-wrapper audits.  The raw aliases remain explicitly raw.  The next interface-change PR
-should decide whether the legacy admissible-cut names depend on this data or
-stay as compatibility aliases.
+wrapper audits.  The raw aliases remain explicitly raw; consumers that want a
+pinned admissible-cut interface should use
+`HasAdmissibleCutCoalgebraContract`, not the legacy raw alias.
 
 ## What the Mother Repository Can Consume Today
 

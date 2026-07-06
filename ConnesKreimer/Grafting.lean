@@ -199,6 +199,22 @@ theorem vertices_graft_eq_one_iff_vertexCount_zero
   · intro h
     rw [h]
 
+/-- A singleton-source graft has exactly one vertex precisely when its
+source multiplicity-weighted vertex count is zero. -/
+theorem vertices_graft_single_eq_one_iff_mul_vertices_eq_zero
+    (t : P.Tree) (m : Nat) :
+    P.vertices (P.graft (Finsupp.single t m : ConnesKreimer.Forest P.Tree)) = 1
+      ↔ m * P.vertices t = 0 := by
+  simp
+
+/-- A multiplicity-one singleton-source graft has exactly one vertex precisely
+when the source tree has zero vertex count. -/
+theorem vertices_graft_single_one_eq_one_iff_vertices_eq_zero
+    (t : P.Tree) :
+    P.vertices (P.graft (Finsupp.single t 1 : ConnesKreimer.Forest P.Tree)) = 1
+      ↔ P.vertices t = 0 := by
+  simp
+
 /-- A graft has more than the new root precisely when its source forest has
 positive vertex count. -/
 theorem one_lt_vertices_graft_iff_vertexCount_pos

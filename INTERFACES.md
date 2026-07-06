@@ -114,10 +114,18 @@ Alias-audit helpers:
 * `ConnesKreimer.hasConnesKreimerBialgebra_iff_hasRawBialgebra`
 * `ConnesKreimer.hasConnesKreimerHopfAlgebra_iff_hasRawHopfAlgebra`
 
+Data-bearing admissible-cut contract:
+
+* `ConnesKreimer.AdmissibleCutData`
+* `ConnesKreimer.HasAdmissibleCutData`
+
 Current caveat: these names are `Nonempty` wrappers around Mathlib structure
 classes on `RootedTreeProvider.Algebra R P`.  They do not by themselves pin the
-Connes-Kreimer admissible-cut coproduct.  Issue #29 tracks the future
-data-bearing admissible-cut contract.
+Connes-Kreimer admissible-cut coproduct.  `AdmissibleCutData` is the stricter
+contract shape: it names a coproduct, counit, linear `B_+` operator, and the
+`B_+` 1-cocycle equations, but main still proves no existence theorem for it.
+Issue #29 tracks whether legacy aliases should eventually depend on this data
+or remain permanently raw.
 
 ## Breaking-change policy
 

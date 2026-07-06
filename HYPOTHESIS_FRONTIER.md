@@ -27,9 +27,10 @@ alias relationships as public Lean theorems.
 INTERFACE FINDING (tracked by issue #29): all six names above are `Nonempty`
 of a structure class, so any coalgebra/bialgebra/Hopf structure on
 `MvPolynomial Tree R` witnesses them, not only the admissible-cut one.  The
-frontier structure `AdmissibleCutData` pins the coproduct by the `B_+`
-1-cocycle equation; re-expressing the contract through it remains the next
-Interface-Change decision.
+mainline structure `AdmissibleCutData` pins the coproduct by the `B_+`
+1-cocycle equation as data; proving that such data exist remains frontier work.
+Re-expressing the legacy contract through it remains the next Interface-Change
+decision.
 
 ## Closed facts on `main`
 
@@ -53,14 +54,13 @@ Grafting layer (`Grafting.lean`):
   `isHomogeneousVertexDegree_graftGenerator`: `B_+` raises the vertex degree
   by exactly one.
 * `vertices_graft_pos`, `vertices_graft_injective_on_count`.
+* `AdmissibleCutData` and `HasAdmissibleCutData` (data contract only: coproduct,
+  counit, linear `B_+`, and the `B_+` 1-cocycle equations; no existence theorem).
 
 ## Frontier obligations (branch `frontier/M1`, statement-first, sorried)
 
 `Frontier/CutCoproduct.lean`:
 
-* `AdmissibleCutData` (coproduct + counit + linear `B_+`, pinned by the
-  1-cocycle equation — the property that characterizes the Connes-Kreimer
-  coproduct).
 * `exists_admissibleCutData` under `Function.Bijective graft` (the
   universal property of rooted trees).
 * `hasAdmissibleCutCoalgebra_of_bijective_graft` (contract form).

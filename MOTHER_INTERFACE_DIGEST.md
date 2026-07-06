@@ -181,6 +181,7 @@ The following are explicit hypotheses, not proved structures:
 * `ConnesKreimer.AdmissibleCutData.graftOperator_forestMonomial`
 * `ConnesKreimer.AdmissibleCutData.graftOperator_smul_forestMonomial`
 * `ConnesKreimer.AdmissibleCutData.graftOperator_add_forestMonomial`
+* `ConnesKreimer.AdmissibleCutData.graftOperator_nsmul_forestMonomial`
 * `ConnesKreimer.AdmissibleCutData.graftOperator_treeGenerator`
 * `ConnesKreimer.AdmissibleCutData.graftOperator_one`
 * `ConnesKreimer.AdmissibleCutData.counit_graftOperator_forestMonomial`
@@ -217,6 +218,9 @@ same supplied operator on scalar multiples of normalized forest monomials.  The
 wrapper
 `ConnesKreimer.AdmissibleCutData.graftOperator_add_forestMonomial` exposes the
 same supplied operator on two-term sums of normalized forest monomials.  The
+wrapper `ConnesKreimer.AdmissibleCutData.graftOperator_nsmul_forestMonomial`
+exposes the same supplied operator on natural multiples of normalized forest
+monomials.  The
 wrapper
 `ConnesKreimer.AdmissibleCutData.graftOperator_treeGenerator` exposes the
 same supplied linear graft operator on a named tree generator by using the
@@ -260,6 +264,7 @@ the shape to satisfy, plus
 `ConnesKreimer.AdmissibleCutData.graftOperator_forestMonomial` and
 `ConnesKreimer.AdmissibleCutData.graftOperator_smul_forestMonomial` and
 `ConnesKreimer.AdmissibleCutData.graftOperator_add_forestMonomial` and
+`ConnesKreimer.AdmissibleCutData.graftOperator_nsmul_forestMonomial` and
 `ConnesKreimer.AdmissibleCutData.graftOperator_treeGenerator` and
 `ConnesKreimer.AdmissibleCutData.graftOperator_one` and
 `ConnesKreimer.AdmissibleCutData.counit_graftOperator_forestMonomial` and
@@ -367,6 +372,9 @@ direct consumer-facing form.  The wrapper
 the same supplied operator on
 `forestMonomial R f + forestMonomial R g` to the corresponding sum of graft
 generators.  The wrapper
+`ConnesKreimer.AdmissibleCutData.graftOperator_nsmul_forestMonomial` rewrites
+the same supplied operator on `n • forestMonomial R f` to the corresponding
+natural multiple of the graft generator.  The wrapper
 `ConnesKreimer.AdmissibleCutData.graftOperator_treeGenerator` rewrites the same
 operator on `treeGenerator R t` to the graft generator for the singleton
 forest `Finsupp.single t 1`, without unfolding the singleton bridge.  The

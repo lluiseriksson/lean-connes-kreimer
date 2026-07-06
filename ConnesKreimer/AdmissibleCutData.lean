@@ -119,6 +119,18 @@ theorem graftOperator_add_forestMonomial {P : GraftingProvider.{u}}
   rw [map_add, D.graftOperator_forestMonomial f,
     D.graftOperator_forestMonomial g]
 
+/-- The linear graft operator sends natural multiples of normalized forest
+monomials to the same natural multiple of the graft generator.
+
+This is a consumer-facing wrapper around linearity plus
+`graftOperator_forestMonomial`; downstream code can keep repeated forest
+monomials normalized without unfolding the supplied linear map. -/
+@[simp]
+theorem graftOperator_nsmul_forestMonomial {P : GraftingProvider.{u}}
+    (D : AdmissibleCutData P R) (n : Nat) (f : ConnesKreimer.Forest P.Tree) :
+    D.graftOperator (n • forestMonomial R f) = n • P.graftGenerator R f := by
+  rw [map_nsmul, D.graftOperator_forestMonomial f]
+
 /-- The linear graft operator sends a tree generator to the graft generator
 for the singleton forest containing that tree.
 

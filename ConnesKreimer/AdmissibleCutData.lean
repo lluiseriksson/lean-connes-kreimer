@@ -76,6 +76,19 @@ theorem graftOperator_forestMonomial {P : GraftingProvider.{u}}
     D.graftOperator (forestMonomial R f) = P.graftGenerator R f := by
   simpa [forestMonomial] using D.graftOperator_monomial f (1 : R)
 
+/-- The linear graft operator sends a tree generator to the graft generator
+for the singleton forest containing that tree.
+
+This is a consumer-facing wrapper combining `graftOperator_forestMonomial` with
+the closed M0 bridge from tree generators to singleton forest monomials. -/
+@[simp]
+theorem graftOperator_treeGenerator {P : GraftingProvider.{u}}
+    (D : AdmissibleCutData P R) (t : P.Tree) :
+    D.graftOperator (treeGenerator R t)
+      = P.graftGenerator R (Finsupp.single t 1 : ConnesKreimer.Forest P.Tree) := by
+  rw [treeGenerator_eq_forestMonomial_single_one]
+  exact D.graftOperator_forestMonomial (Finsupp.single t 1)
+
 /-- The counit kills the linear graft operator on normalized forest monomials.
 
 This is a consumer-facing wrapper combining `graftOperator_forestMonomial` with

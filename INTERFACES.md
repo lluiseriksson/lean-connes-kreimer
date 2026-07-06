@@ -120,6 +120,7 @@ Data-bearing admissible-cut contract:
 * `ConnesKreimer.HasAdmissibleCutData`
 * `ConnesKreimer.hasAdmissibleCutData_iff_nonempty`
 * `ConnesKreimer.AdmissibleCutData.graftOperator_forestMonomial`
+* `ConnesKreimer.AdmissibleCutData.graftOperator_treeGenerator`
 * `ConnesKreimer.AdmissibleCutData.counit_graftOperator_forestMonomial`
 * `ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_forestMonomial`
 
@@ -130,7 +131,9 @@ themselves pin the Connes-Kreimer admissible-cut coproduct.
 counit, linear `B_+` operator, and the `B_+` 1-cocycle equations, while
 `hasAdmissibleCutData_iff_nonempty` exposes the definitional nonempty wrapper;
 `ConnesKreimer.AdmissibleCutData.graftOperator_forestMonomial` exposes the
-coefficient-one `forestMonomial` case of the linear `B_+` operator; and
+coefficient-one `forestMonomial` case of the linear `B_+` operator;
+`ConnesKreimer.AdmissibleCutData.graftOperator_treeGenerator` exposes the
+singleton-tree-generator case via the closed M0 bridge; and
 `ConnesKreimer.AdmissibleCutData.counit_graftOperator_forestMonomial` exposes
 the corresponding counit-zero wrapper.  The wrapper
 `ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_forestMonomial`

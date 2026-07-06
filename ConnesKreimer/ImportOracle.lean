@@ -34,7 +34,7 @@ example (S : Type v) [CommRing S] (P : GraftingProvider.{u}) :
 
 example (S : Type v) [CommRing S] (P : GraftingProvider.{u}) :
     HasAdmissibleCutData S P ↔ Nonempty (AdmissibleCutData P S) :=
-  Iff.rfl
+  ConnesKreimer.hasAdmissibleCutData_iff_nonempty S P
 
 example (t : Tree) :
     treeGenerator R t = forestMonomial R (Finsupp.single t 1 : Forest Tree) :=

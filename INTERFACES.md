@@ -119,6 +119,7 @@ Data-bearing admissible-cut contract:
 * `ConnesKreimer.AdmissibleCutData`
 * `ConnesKreimer.HasAdmissibleCutData`
 * `ConnesKreimer.hasAdmissibleCutData_iff_nonempty`
+* `ConnesKreimer.AdmissibleCutData.graftOperator_forestMonomial`
 
 Current caveat: the raw and legacy names above are `Nonempty` wrappers around
 Mathlib structure classes on `RootedTreeProvider.Algebra R P`.  They do not by
@@ -126,7 +127,9 @@ themselves pin the Connes-Kreimer admissible-cut coproduct.
 `AdmissibleCutData` is the stricter contract shape: it names a coproduct,
 counit, linear `B_+` operator, and the `B_+` 1-cocycle equations, while
 `hasAdmissibleCutData_iff_nonempty` exposes the definitional nonempty wrapper;
-main still proves no existence theorem for this data.
+`ConnesKreimer.AdmissibleCutData.graftOperator_forestMonomial` exposes the
+coefficient-one `forestMonomial` case of the linear `B_+` operator; main still
+proves no existence theorem for this data.
 Issue #29 tracks whether legacy aliases should eventually depend on this data
 or remain permanently raw.
 

@@ -36,6 +36,11 @@ example (S : Type v) [CommRing S] (P : GraftingProvider.{u}) :
     HasAdmissibleCutData S P ↔ Nonempty (AdmissibleCutData P S) :=
   ConnesKreimer.hasAdmissibleCutData_iff_nonempty S P
 
+example (S : Type v) [CommRing S] (P : GraftingProvider.{u})
+    (D : AdmissibleCutData P S) (f : Forest P.Tree) :
+    D.graftOperator (forestMonomial S f) = P.graftGenerator S f :=
+  D.graftOperator_forestMonomial f
+
 example (t : Tree) :
     treeGenerator R t = forestMonomial R (Finsupp.single t 1 : Forest Tree) :=
   treeGenerator_eq_forestMonomial_single_one (R := R) t

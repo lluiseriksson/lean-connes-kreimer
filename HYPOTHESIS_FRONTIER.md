@@ -31,6 +31,8 @@ mainline structure `AdmissibleCutData` pins the coproduct by the `B_+`
 1-cocycle equation as data; proving that such data exist remains frontier work.
 The helper `hasAdmissibleCutData_iff_nonempty` exposes only that
 `HasAdmissibleCutData` is the nonempty wrapper around this data contract.
+The wrapper `AdmissibleCutData.graftOperator_forestMonomial` exposes only the
+coefficient-one `forestMonomial` case of the data field `graftOperator_monomial`.
 Re-expressing the legacy contract through it remains the next Interface-Change
 decision.
 
@@ -59,6 +61,8 @@ Grafting layer (`Grafting.lean`):
 * `AdmissibleCutData` and `HasAdmissibleCutData` (data contract only: coproduct,
   counit, linear `B_+`, and the `B_+` 1-cocycle equations; no existence theorem).
 * `hasAdmissibleCutData_iff_nonempty` (definitional audit for the data wrapper).
+* `AdmissibleCutData.graftOperator_forestMonomial` (closed wrapper for the
+  normalized forest-monomial case of the graft operator field).
 
 ## Frontier obligations (branch `frontier/M1`, statement-first, sorried)
 

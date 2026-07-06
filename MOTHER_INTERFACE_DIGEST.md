@@ -3,7 +3,7 @@
 Last updated: 2026-07-06.
 
 Base public HEAD before this digest refresh:
-`b636c528bdff97264ae5b93421750bd05d310baa`.
+`c47327665680a322bbd5175b1e2fbb55f2758595`.
 
 ## Import
 
@@ -157,6 +157,7 @@ The following are explicit hypotheses, not proved structures:
 * `ConnesKreimer.AdmissibleCutData`
 * `ConnesKreimer.HasAdmissibleCutData`
 * `ConnesKreimer.hasAdmissibleCutData_iff_nonempty`
+* `ConnesKreimer.AdmissibleCutData.graftOperator_forestMonomial`
 
 Current interface caveat: the three `HasRaw...` names and the three legacy
 compatibility names are `Nonempty` wrappers around Mathlib structure classes on
@@ -171,7 +172,10 @@ The three `..._iff_hasRaw...` helpers expose this alias relationship directly
 and are covered by the import oracle.  The data-contract helper
 `ConnesKreimer.hasAdmissibleCutData_iff_nonempty` similarly exposes that
 `ConnesKreimer.HasAdmissibleCutData R P` is exactly nonemptiness of
-`ConnesKreimer.AdmissibleCutData P R`.
+`ConnesKreimer.AdmissibleCutData P R`.  The wrapper
+`ConnesKreimer.AdmissibleCutData.graftOperator_forestMonomial` exposes that the
+linear graft operator sends the normalized forest monomial to the corresponding
+graft generator.
 
 ## Current Interface Blocker
 
@@ -193,10 +197,11 @@ The missing mathematical payload for M1 is an existence theorem and downstream
 contract decision for the data-bearing admissible-cut API.  Main now exposes
 `ConnesKreimer.AdmissibleCutData` and `ConnesKreimer.HasAdmissibleCutData` as
 the shape to satisfy, plus
-`ConnesKreimer.hasAdmissibleCutData_iff_nonempty` as the wrapper audit.  The
-raw aliases remain explicitly raw.  The next interface-change PR should decide
-whether the legacy admissible-cut names depend on this data or stay as
-compatibility aliases.
+`ConnesKreimer.hasAdmissibleCutData_iff_nonempty` and
+`ConnesKreimer.AdmissibleCutData.graftOperator_forestMonomial` as wrapper
+audits.  The raw aliases remain explicitly raw.  The next interface-change PR
+should decide whether the legacy admissible-cut names depend on this data or
+stay as compatibility aliases.
 
 ## What the Mother Repository Can Consume Today
 
@@ -280,5 +285,10 @@ and for multiplicity one.  Meanwhile,
 packages the matching equality criterion for two grafted forests.
 The bridge lemma `ConnesKreimer.treeGenerator_eq_forestMonomial_single_one`
 lets a consumer rewrite a named tree generator as the corresponding singleton
-forest monomial.  There is no coproduct on `main`, no bialgebra, no Hopf
-algebra, and no Yang-Mills renormalization claim.
+forest monomial.  If a downstream consumer supplies an
+`AdmissibleCutData` value, the wrapper
+`ConnesKreimer.AdmissibleCutData.graftOperator_forestMonomial` rewrites its
+linear graft operator on `forestMonomial R f` to `P.graftGenerator R f` without
+unfolding the coefficient-one monomial field.  There is no proved
+admissible-cut data existence theorem on `main`, no bialgebra, no Hopf algebra,
+and no Yang-Mills renormalization claim.

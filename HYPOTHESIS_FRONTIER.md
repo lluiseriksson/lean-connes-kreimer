@@ -77,6 +77,8 @@ Grafting layer (`Grafting.lean`):
   for the data-backed contract alias).
 * `AdmissibleCutData.graftOperator_forestMonomial` (closed wrapper for the
   normalized forest-monomial case of the graft operator field).
+* `AdmissibleCutData.graftOperator_smul_forestMonomial` (closed wrapper for
+  scalar multiples of normalized forest monomials under the graft operator).
 * `AdmissibleCutData.graftOperator_treeGenerator` (closed wrapper for the
   singleton tree-generator case of the graft operator field).
 * `AdmissibleCutData.counit_graftOperator_forestMonomial` (closed wrapper for

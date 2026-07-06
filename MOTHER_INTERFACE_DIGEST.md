@@ -179,6 +179,7 @@ The following are explicit hypotheses, not proved structures:
 * `ConnesKreimer.hasAdmissibleCutData_iff_nonempty`
 * `ConnesKreimer.hasAdmissibleCutCoalgebraContract_iff_hasAdmissibleCutData`
 * `ConnesKreimer.AdmissibleCutData.graftOperator_forestMonomial`
+* `ConnesKreimer.AdmissibleCutData.graftOperator_smul_forestMonomial`
 * `ConnesKreimer.AdmissibleCutData.graftOperator_treeGenerator`
 * `ConnesKreimer.AdmissibleCutData.graftOperator_one`
 * `ConnesKreimer.AdmissibleCutData.counit_graftOperator_forestMonomial`
@@ -210,6 +211,9 @@ exposes that it is exactly `HasAdmissibleCutData`.  The wrapper
 `ConnesKreimer.AdmissibleCutData.graftOperator_forestMonomial` exposes that the
 linear graft operator sends the normalized forest monomial to the corresponding
 graft generator.  The wrapper
+`ConnesKreimer.AdmissibleCutData.graftOperator_smul_forestMonomial` exposes the
+same supplied operator on scalar multiples of normalized forest monomials.  The
+wrapper
 `ConnesKreimer.AdmissibleCutData.graftOperator_treeGenerator` exposes the
 same supplied linear graft operator on a named tree generator by using the
 closed singleton forest bridge.  The wrapper
@@ -250,6 +254,7 @@ the shape to satisfy, plus
 `ConnesKreimer.HasAdmissibleCutCoalgebraContract` and
 `ConnesKreimer.hasAdmissibleCutCoalgebraContract_iff_hasAdmissibleCutData` and
 `ConnesKreimer.AdmissibleCutData.graftOperator_forestMonomial` and
+`ConnesKreimer.AdmissibleCutData.graftOperator_smul_forestMonomial` and
 `ConnesKreimer.AdmissibleCutData.graftOperator_treeGenerator` and
 `ConnesKreimer.AdmissibleCutData.graftOperator_one` and
 `ConnesKreimer.AdmissibleCutData.counit_graftOperator_forestMonomial` and
@@ -349,6 +354,10 @@ forest monomial.  If a downstream consumer supplies an
 `ConnesKreimer.AdmissibleCutData.graftOperator_forestMonomial` rewrites its
 linear graft operator on `forestMonomial R f` to `P.graftGenerator R f` without
 unfolding the coefficient-one monomial field.  The wrapper
+`ConnesKreimer.AdmissibleCutData.graftOperator_smul_forestMonomial` rewrites
+the same supplied operator on `a • forestMonomial R f` to
+`a • P.graftGenerator R f`, so coefficient-scaled forest monomials remain a
+direct consumer-facing form.  The wrapper
 `ConnesKreimer.AdmissibleCutData.graftOperator_treeGenerator` rewrites the same
 operator on `treeGenerator R t` to the graft generator for the singleton
 forest `Finsupp.single t 1`, without unfolding the singleton bridge.  The

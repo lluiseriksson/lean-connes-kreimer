@@ -57,12 +57,25 @@ example (S : Type v) [CommRing S] (P : GraftingProvider.{u})
   D.counit_graftOperator_forestMonomial f
 
 example (S : Type v) [CommRing S] (P : GraftingProvider.{u})
+    (D : AdmissibleCutData P S) (t : P.Tree) :
+    D.counit (D.graftOperator (treeGenerator S t)) = 0 :=
+  D.counit_graftOperator_treeGenerator t
+
+example (S : Type v) [CommRing S] (P : GraftingProvider.{u})
     (D : AdmissibleCutData P S) (f : Forest P.Tree) :
     D.coproduct (D.graftOperator (forestMonomial S f))
       = (D.graftOperator (forestMonomial S f)) ⊗ₜ[S] 1
         + (TensorProduct.map LinearMap.id D.graftOperator)
             (D.coproduct (forestMonomial S f)) :=
   D.coproduct_graftOperator_forestMonomial f
+
+example (S : Type v) [CommRing S] (P : GraftingProvider.{u})
+    (D : AdmissibleCutData P S) (t : P.Tree) :
+    D.coproduct (D.graftOperator (treeGenerator S t))
+      = (D.graftOperator (treeGenerator S t)) ⊗ₜ[S] 1
+        + (TensorProduct.map LinearMap.id D.graftOperator)
+            (D.coproduct (treeGenerator S t)) :=
+  D.coproduct_graftOperator_treeGenerator t
 
 example (t : Tree) :
     treeGenerator R t = forestMonomial R (Finsupp.single t 1 : Forest Tree) :=

@@ -76,6 +76,17 @@ theorem graftOperator_forestMonomial {P : GraftingProvider.{u}}
     D.graftOperator (forestMonomial R f) = P.graftGenerator R f := by
   simpa [forestMonomial] using D.graftOperator_monomial f (1 : R)
 
+/-- The counit kills the linear graft operator on normalized forest monomials.
+
+This is a consumer-facing wrapper combining `graftOperator_forestMonomial` with
+the supplied `counit_graft` field; it does not assert that such data exist. -/
+@[simp]
+theorem counit_graftOperator_forestMonomial {P : GraftingProvider.{u}}
+    (D : AdmissibleCutData P R) (f : ConnesKreimer.Forest P.Tree) :
+    D.counit (D.graftOperator (forestMonomial R f)) = 0 := by
+  rw [D.graftOperator_forestMonomial f]
+  exact D.counit_graft f
+
 end AdmissibleCutData
 
 end ConnesKreimer

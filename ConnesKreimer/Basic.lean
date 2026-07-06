@@ -60,6 +60,12 @@ theorem forestMonomial_add {Tree : Type u} {R : Type v} [CommSemiring R]
   simp [forestMonomial, MvPolynomial.monomial_mul]
 
 @[simp]
+theorem forestMonomial_single {Tree : Type u} {R : Type v} [CommSemiring R]
+    (t : Tree) (m : Nat) :
+    forestMonomial R (Finsupp.single t m : Forest Tree) = treeGenerator R t ^ m := by
+  rw [forestMonomial, treeGenerator, MvPolynomial.X_pow_eq_monomial]
+
+@[simp]
 theorem treeGenerator_eq_forestMonomial_single_one {Tree : Type u} {R : Type v}
     [CommSemiring R] (t : Tree) :
     treeGenerator R t = forestMonomial R (Finsupp.single t 1 : Forest Tree) := by

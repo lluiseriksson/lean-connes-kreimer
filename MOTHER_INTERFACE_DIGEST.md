@@ -3,7 +3,7 @@
 Last updated: 2026-07-06.
 
 Base public HEAD before this digest refresh:
-`a90c90b0ae8d9dab7941624157ce6a1ceb8bd4a2`.
+`83c4c0f4a85f532b3d38920ea4d96c4034122f26`.
 
 ## Import
 
@@ -67,6 +67,7 @@ Algebra and forests:
 * `ConnesKreimer.forestMonomial`
 * `ConnesKreimer.forestMonomial_zero`
 * `ConnesKreimer.forestMonomial_add`
+* `ConnesKreimer.forestMonomial_single`
 * `ConnesKreimer.treeGenerator_eq_forestMonomial_single_one`
 * `ConnesKreimer.Forest.vertexCount`
 * `ConnesKreimer.IsHomogeneousVertexDegree`
@@ -163,7 +164,14 @@ generators.  The closed monomial wrappers
 `ConnesKreimer.forestMonomial_add` expose that the empty forest maps to the
 unit and that forest addition maps to multiplication in `CKAlgebra`.  These
 are the direct M0 bookkeeping facts a downstream counterterm ledger would need
-before any coproduct API exists.  The closed product-degree wrappers
+before any coproduct API exists.
+The closed singleton-power wrapper
+`ConnesKreimer.forestMonomial_single` exposes
+`forestMonomial R (Finsupp.single t m) = treeGenerator R t ^ m`, so a
+downstream ledger can rewrite repeated occurrences of one tree between forest
+notation and powers of the corresponding polynomial generator without
+unfolding `MvPolynomial`.
+The closed product-degree wrappers
 `ConnesKreimer.isHomogeneousVertexDegree_forestMonomial_mul` and
 `ConnesKreimer.forestMonomial_mul_mem_homogeneousSubmodule` expose that the
 product of forest monomials for `f` and `g` lies in vertex degree

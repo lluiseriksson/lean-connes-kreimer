@@ -28,6 +28,14 @@ example (P : RootedTreeProvider.{u}) :
     HasConnesKreimerHopfAlgebra R P ↔ HasRawHopfAlgebra R P :=
   ConnesKreimer.hasConnesKreimerHopfAlgebra_iff_hasRawHopfAlgebra R P
 
+example (S : Type v) [CommRing S] (P : GraftingProvider.{u}) :
+    Type (max u v) :=
+  ConnesKreimer.AdmissibleCutData P S
+
+example (S : Type v) [CommRing S] (P : GraftingProvider.{u}) :
+    HasAdmissibleCutData S P ↔ Nonempty (AdmissibleCutData P S) :=
+  Iff.rfl
+
 example (t : Tree) :
     treeGenerator R t = forestMonomial R (Finsupp.single t 1 : Forest Tree) :=
   treeGenerator_eq_forestMonomial_single_one (R := R) t

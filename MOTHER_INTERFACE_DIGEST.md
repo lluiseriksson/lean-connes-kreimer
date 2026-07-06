@@ -3,7 +3,7 @@
 Last updated: 2026-07-06.
 
 Base public HEAD before this digest refresh:
-`1f7b4f4442f03a081b662f523ab1b4b280d5c094`.
+`e79185c94dfcecc28cbe9fb4b91367501a71b382`.
 
 ## Import
 
@@ -18,6 +18,7 @@ This root import currently re-exports the closed-proof M0 surface:
 * `ConnesKreimer.Basic`
 * `ConnesKreimer.Grading`
 * `ConnesKreimer.Grafting`
+* `ConnesKreimer.AdmissibleCutData`
 * the explicit frontier hypotheses in `ConnesKreimer.Interfaces`
 
 Consumability oracle: `ConnesKreimer.ImportOracle` is built with the library
@@ -153,15 +154,17 @@ The following are explicit hypotheses, not proved structures:
 * `ConnesKreimer.hasAdmissibleCutCoalgebra_iff_hasRawCoalgebra`
 * `ConnesKreimer.hasConnesKreimerBialgebra_iff_hasRawBialgebra`
 * `ConnesKreimer.hasConnesKreimerHopfAlgebra_iff_hasRawHopfAlgebra`
+* `ConnesKreimer.AdmissibleCutData`
+* `ConnesKreimer.HasAdmissibleCutData`
 
 Current interface caveat: all six names above are `Nonempty` wrappers around
 Mathlib structure classes on the polynomial algebra.  The `HasRaw...` names are
 the preferred exact names when this rawness matters.  The legacy
 Connes-Kreimer/admissible-cut names remain compatibility aliases, but they do
 not by themselves characterize the admissible-cut coproduct.  Issue #29 tracks
-the future data-bearing contract; the statement-first branch `frontier/M1`
-contains `AdmissibleCutData` as the proposed stricter shape, but that branch is
-not a consumable mainline interface.
+whether the legacy names should eventually be tied to the data-bearing
+contract.  `ConnesKreimer.AdmissibleCutData` is now the consumable stricter
+shape, but it is only a data contract: main does not prove that such data exist.
 The three `..._iff_hasRaw...` helpers expose this alias relationship directly
 and are covered by the import oracle.
 
@@ -181,11 +184,12 @@ The import oracle covers only that alias relation via
 `ConnesKreimer.hasConnesKreimerBialgebra_iff_hasRawBialgebra`, and
 `ConnesKreimer.hasConnesKreimerHopfAlgebra_iff_hasRawHopfAlgebra`.
 
-The missing API for M1 is a data-bearing admissible-cut contract.  The
-statement-first source named by the frontier is `AdmissibleCutData` on
-`frontier/M1`, but that branch is not a mainline consumable interface.  The next
-interface-change PR should either introduce that data shape on `main` or reserve
-the admissible-cut names for it while keeping the raw aliases explicit.
+The missing mathematical payload for M1 is an existence theorem and downstream
+contract decision for the data-bearing admissible-cut API.  Main now exposes
+`ConnesKreimer.AdmissibleCutData` and `ConnesKreimer.HasAdmissibleCutData` as
+the shape to satisfy, while the raw aliases remain explicitly raw.  The next
+interface-change PR should decide whether the legacy admissible-cut names depend
+on this data or stay as compatibility aliases.
 
 ## What the Mother Repository Can Consume Today
 

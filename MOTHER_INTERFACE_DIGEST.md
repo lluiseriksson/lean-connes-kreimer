@@ -1,15 +1,15 @@
 # Mother-Facing Interface Digest
 
-Last updated: 2026-07-06.
+Last updated: 2026-07-07.
 
 Audited public HEAD for this digest:
-`88f200bbdd797cabbf81a67c7ca0f99d35e9cb7f`
-(`add admissible cut smul wrapper (#45)`).
+`82b0602f42d395025afcb849a80b6fb2f59eaa7b`
+(`add admissible cut nsmul wrapper (#50)`).
 
 Latest observed `main` CI for this HEAD:
 
-* Lean: success, run `28821907489`.
-* Heartbeat: success, scheduled run `28822861474`.
+* Lean: success, run `28828974960`.
+* Heartbeat: success, run `28828974945`.
 
 ## Import
 
@@ -39,8 +39,9 @@ names added through PR #41, including
 `ConnesKreimer.GraftingProvider.vertices_graft_eq_one_iff_vertexCount_zero`,
 and
 `ConnesKreimer.GraftingProvider.vertices_graft_eq_iff_vertexCount_eq`.
-It also checks the `AdmissibleCutData` wrappers added through #43, including
+It also checks the `AdmissibleCutData` wrappers added through #50, including
 `ConnesKreimer.AdmissibleCutData.graftOperator_one`,
+`ConnesKreimer.AdmissibleCutData.graftOperator_nsmul_forestMonomial`,
 `ConnesKreimer.AdmissibleCutData.counit_graftOperator_one`, and
 `ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_one`.
 

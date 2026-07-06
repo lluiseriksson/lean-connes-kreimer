@@ -3,13 +3,13 @@
 Last updated: 2026-07-06.
 
 Audited public HEAD for this digest:
-`7afe5f4764b40a995e2d999af29d4df148db208a`
-(`audit grafting count imports (#41)`).
+`9ce6b88dae66fec84a140ad5ae00df9c3187db14`
+(`add admissible cut unit wrappers (#43)`).
 
 Latest observed `main` CI for this HEAD:
 
-* Lean: success, run `28805928821`.
-* Heartbeat: success, scheduled run `28806937440`.
+* Lean: success, run `28814064877`.
+* Heartbeat: success, scheduled run `28816233033`.
 
 ## Import
 
@@ -30,7 +30,7 @@ This root import currently re-exports the closed-proof M0 surface:
 Consumability oracle: `ConnesKreimer.ImportOracle` is built with the library
 and imports only `Interfaces` before checking representative closed M0 names.
 It is an internal build check, not an additional consumer-facing import path.
-At this audited HEAD, the oracle also checks the documented graft-count guard
+At this audited HEAD, the oracle still checks the documented graft-count guard
 names added through PR #41, including
 `ConnesKreimer.GraftingProvider.vertices_graft_single`,
 `ConnesKreimer.GraftingProvider.vertices_graft_single_pos`,
@@ -39,6 +39,10 @@ names added through PR #41, including
 `ConnesKreimer.GraftingProvider.vertices_graft_eq_one_iff_vertexCount_zero`,
 and
 `ConnesKreimer.GraftingProvider.vertices_graft_eq_iff_vertexCount_eq`.
+It also checks the `AdmissibleCutData` wrappers added through #43, including
+`ConnesKreimer.AdmissibleCutData.graftOperator_one`,
+`ConnesKreimer.AdmissibleCutData.counit_graftOperator_one`, and
+`ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_one`.
 
 There is still no direct import from THE-ERIKSSON-PROGRAMME into this
 satellite, and this satellite should not be imported by the mother repository
@@ -213,11 +217,13 @@ closed singleton forest bridge.  The wrapper
 operator on the unit, viewed as the empty-forest monomial.  The wrapper
 `ConnesKreimer.AdmissibleCutData.counit_graftOperator_forestMonomial` exposes
 that the supplied counit kills that normalized graft-operator output; the
-unit case is exposed by
+singleton-tree and unit cases are exposed by
+`ConnesKreimer.AdmissibleCutData.counit_graftOperator_treeGenerator` and
 `ConnesKreimer.AdmissibleCutData.counit_graftOperator_one`.  The wrapper
 `ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_forestMonomial`
 exposes the supplied `B_+` 1-cocycle equation on the same normalized output;
-the unit case is exposed by
+the singleton-tree and unit cases are exposed by
+`ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_treeGenerator` and
 `ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_one`.
 
 ## Current Interface Blocker

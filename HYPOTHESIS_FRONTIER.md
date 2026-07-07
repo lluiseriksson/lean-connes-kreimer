@@ -44,6 +44,8 @@ normalized forest monomials.
 The wrapper `AdmissibleCutData.graftOperator_nsmul_forestMonomial` exposes
 only the natural-multiple consequence of the supplied linear graft operator on
 normalized forest monomials.
+The wrapper `AdmissibleCutData.graftOperator_zero` exposes only the zero case
+of the supplied linear graft operator.
 The wrapper `AdmissibleCutData.graftOperator_treeGenerator` exposes the
 singleton tree-generator case derived from that field and the closed M0 bridge.
 The wrapper `AdmissibleCutData.counit_graftOperator_forestMonomial` combines
@@ -89,6 +91,8 @@ Grafting layer (`Grafting.lean`):
   two-term sums of normalized forest monomials under the graft operator).
 * `AdmissibleCutData.graftOperator_nsmul_forestMonomial` (closed wrapper for
   natural multiples of normalized forest monomials under the graft operator).
+* `AdmissibleCutData.graftOperator_zero` (closed wrapper for the zero case of
+  the graft operator).
 * `AdmissibleCutData.graftOperator_treeGenerator` (closed wrapper for the
   singleton tree-generator case of the graft operator field).
 * `AdmissibleCutData.counit_graftOperator_forestMonomial` (closed wrapper for

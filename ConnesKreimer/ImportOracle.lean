@@ -62,6 +62,11 @@ example (S : Type v) [CommRing S] (P : GraftingProvider.{u})
   D.graftOperator_nsmul_forestMonomial n f
 
 example (S : Type v) [CommRing S] (P : GraftingProvider.{u})
+    (D : AdmissibleCutData P S) :
+    D.graftOperator (0 : CKAlgebra S P.Tree) = 0 :=
+  D.graftOperator_zero
+
+example (S : Type v) [CommRing S] (P : GraftingProvider.{u})
     (D : AdmissibleCutData P S) (t : P.Tree) :
     D.graftOperator (treeGenerator S t)
       = P.graftGenerator S (Finsupp.single t 1 : Forest P.Tree) :=

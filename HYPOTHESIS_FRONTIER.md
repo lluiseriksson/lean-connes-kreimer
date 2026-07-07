@@ -1,6 +1,6 @@
 # Hypothesis Frontier
 
-Last updated: 2026-07-06.
+Last updated: 2026-07-07.
 
 ## Current main branch
 
@@ -48,10 +48,18 @@ The wrapper `AdmissibleCutData.graftOperator_zero` exposes only the zero case
 of the supplied linear graft operator.
 The wrapper `AdmissibleCutData.graftOperator_treeGenerator` exposes the
 singleton tree-generator case derived from that field and the closed M0 bridge.
+The wrapper `AdmissibleCutData.graftOperator_one` exposes the empty-forest unit
+case of the supplied linear graft operator.
 The wrapper `AdmissibleCutData.counit_graftOperator_forestMonomial` combines
 that normalized graft-operator case with the supplied `counit_graft` field.
+The wrappers `AdmissibleCutData.counit_graftOperator_treeGenerator` and
+`AdmissibleCutData.counit_graftOperator_one` expose the corresponding
+singleton-tree and unit specializations.
 The wrapper `AdmissibleCutData.coproduct_graftOperator_forestMonomial` combines
 the normalized graft-operator case with the supplied `cocycle` field.
+The wrappers `AdmissibleCutData.coproduct_graftOperator_treeGenerator` and
+`AdmissibleCutData.coproduct_graftOperator_one` expose the corresponding
+singleton-tree and unit specializations.
 The zero wrappers `AdmissibleCutData.counit_graftOperator_zero` and
 `AdmissibleCutData.coproduct_graftOperator_zero` expose only the literal zero
 case for the supplied maps.
@@ -98,10 +106,18 @@ Grafting layer (`Grafting.lean`):
   the graft operator).
 * `AdmissibleCutData.graftOperator_treeGenerator` (closed wrapper for the
   singleton tree-generator case of the graft operator field).
+* `AdmissibleCutData.graftOperator_one` (closed wrapper for the empty-forest
+  unit case of the graft operator field).
 * `AdmissibleCutData.counit_graftOperator_forestMonomial` (closed wrapper for
   the counit-zero consequence on normalized forest monomials).
+* `AdmissibleCutData.counit_graftOperator_treeGenerator` and
+  `AdmissibleCutData.counit_graftOperator_one` (closed singleton-tree and unit
+  specializations of the counit-zero wrapper).
 * `AdmissibleCutData.coproduct_graftOperator_forestMonomial` (closed wrapper
   for the supplied `B_+` 1-cocycle equation on normalized forest monomials).
+* `AdmissibleCutData.coproduct_graftOperator_treeGenerator` and
+  `AdmissibleCutData.coproduct_graftOperator_one` (closed singleton-tree and
+  unit specializations of the supplied `B_+` 1-cocycle equation).
 * `AdmissibleCutData.counit_graftOperator_zero` and
   `AdmissibleCutData.coproduct_graftOperator_zero` (closed zero-case wrappers
   for the supplied counit and coproduct).

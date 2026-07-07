@@ -3,13 +3,13 @@
 Last updated: 2026-07-07.
 
 Audited public HEAD for this digest:
-`4a7e3653d920a1d9047fe4d74394e5eb4ef25300`
-(`add admissible cut zero wrapper (#54)`).
+`1f1fd8fa7187b39a56198f9ab8317ef333d38cb8`
+(`add admissible cut zero downstream wrappers (#55)`).
 
 Latest observed `main` CI for this HEAD:
 
-* Lean: success, run `28834711519`.
-* Heartbeat: success, run `28834711467`.
+* Lean: success, run `28837222670`.
+* Heartbeat: success, run `28837222663`.
 
 ## Import
 
@@ -39,12 +39,14 @@ names added through PR #41, including
 `ConnesKreimer.GraftingProvider.vertices_graft_eq_one_iff_vertexCount_zero`,
 and
 `ConnesKreimer.GraftingProvider.vertices_graft_eq_iff_vertexCount_eq`.
-It also checks the `AdmissibleCutData` wrappers added through #54, including
+It also checks the `AdmissibleCutData` wrappers added through #55, including
 `ConnesKreimer.AdmissibleCutData.graftOperator_one`,
 `ConnesKreimer.AdmissibleCutData.graftOperator_nsmul_forestMonomial`,
 `ConnesKreimer.AdmissibleCutData.graftOperator_zero`,
-`ConnesKreimer.AdmissibleCutData.counit_graftOperator_one`, and
-`ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_one`.
+`ConnesKreimer.AdmissibleCutData.counit_graftOperator_one`,
+`ConnesKreimer.AdmissibleCutData.counit_graftOperator_zero`,
+`ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_one`, and
+`ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_zero`.
 
 There is still no direct import from THE-ERIKSSON-PROGRAMME into this
 satellite, and this satellite should not be imported by the mother repository

@@ -3,13 +3,13 @@
 Last updated: 2026-07-07.
 
 Audited public HEAD for this digest:
-`1f1fd8fa7187b39a56198f9ab8317ef333d38cb8`
-(`add admissible cut zero downstream wrappers (#55)`).
+`45f374de4b08fda83adfd726a2bfd0f15b6c4d54`
+(`refresh digest audited head (#56)`).
 
 Latest observed `main` CI for this HEAD:
 
-* Lean: success, run `28837222670`.
-* Heartbeat: success, run `28837222663`.
+* Lean: success, run `28839013596`.
+* Heartbeat: success, run `28839013597`.
 
 ## Import
 

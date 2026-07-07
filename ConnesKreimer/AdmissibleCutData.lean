@@ -131,6 +131,16 @@ theorem graftOperator_nsmul_forestMonomial {P : GraftingProvider.{u}}
     D.graftOperator (n • forestMonomial R f) = n • P.graftGenerator R f := by
   rw [map_nsmul, D.graftOperator_forestMonomial f]
 
+/-- The linear graft operator sends zero to zero.
+
+This is a consumer-facing wrapper around linearity; downstream code can use the
+supplied graft operator's zero case without unfolding the linear map. -/
+@[simp]
+theorem graftOperator_zero {P : GraftingProvider.{u}}
+    (D : AdmissibleCutData P R) :
+    D.graftOperator (0 : CKAlgebra R P.Tree) = 0 := by
+  exact map_zero D.graftOperator
+
 /-- The linear graft operator sends a tree generator to the graft generator
 for the singleton forest containing that tree.
 

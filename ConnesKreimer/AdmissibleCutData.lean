@@ -194,6 +194,14 @@ theorem counit_graftOperator_one {P : GraftingProvider.{u}}
   rw [D.graftOperator_one]
   exact D.counit_graft (0 : ConnesKreimer.Forest P.Tree)
 
+/-- The counit kills the graft operator on zero. -/
+@[simp]
+theorem counit_graftOperator_zero {P : GraftingProvider.{u}}
+    (D : AdmissibleCutData P R) :
+    D.counit (D.graftOperator (0 : CKAlgebra R P.Tree)) = 0 := by
+  rw [D.graftOperator_zero]
+  exact map_zero D.counit
+
 /-- The supplied coproduct satisfies the `B_+` 1-cocycle equation on the
 normalized forest-monomial output of the graft operator.
 
@@ -234,6 +242,14 @@ theorem coproduct_graftOperator_one {P : GraftingProvider.{u}}
   simpa using
     D.coproduct_graftOperator_forestMonomial
       (0 : ConnesKreimer.Forest P.Tree)
+
+/-- The supplied coproduct sends the graft-operator output of zero to zero. -/
+@[simp]
+theorem coproduct_graftOperator_zero {P : GraftingProvider.{u}}
+    (D : AdmissibleCutData P R) :
+    D.coproduct (D.graftOperator (0 : CKAlgebra R P.Tree)) = 0 := by
+  rw [D.graftOperator_zero]
+  exact map_zero D.coproduct
 
 end AdmissibleCutData
 

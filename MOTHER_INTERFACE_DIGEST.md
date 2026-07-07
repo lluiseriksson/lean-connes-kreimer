@@ -3,13 +3,13 @@
 Last updated: 2026-07-07.
 
 Audited public HEAD for this digest:
-`82b0602f42d395025afcb849a80b6fb2f59eaa7b`
-(`add admissible cut nsmul wrapper (#50)`).
+`4a7e3653d920a1d9047fe4d74394e5eb4ef25300`
+(`add admissible cut zero wrapper (#54)`).
 
 Latest observed `main` CI for this HEAD:
 
-* Lean: success, run `28828974960`.
-* Heartbeat: success, run `28828974945`.
+* Lean: success, run `28834711519`.
+* Heartbeat: success, run `28834711467`.
 
 ## Import
 
@@ -39,7 +39,7 @@ names added through PR #41, including
 `ConnesKreimer.GraftingProvider.vertices_graft_eq_one_iff_vertexCount_zero`,
 and
 `ConnesKreimer.GraftingProvider.vertices_graft_eq_iff_vertexCount_eq`.
-It also checks the `AdmissibleCutData` wrappers added through #50, including
+It also checks the `AdmissibleCutData` wrappers added through #54, including
 `ConnesKreimer.AdmissibleCutData.graftOperator_one`,
 `ConnesKreimer.AdmissibleCutData.graftOperator_nsmul_forestMonomial`,
 `ConnesKreimer.AdmissibleCutData.graftOperator_zero`,
@@ -190,9 +190,11 @@ The following are explicit hypotheses, not proved structures:
 * `ConnesKreimer.AdmissibleCutData.counit_graftOperator_forestMonomial`
 * `ConnesKreimer.AdmissibleCutData.counit_graftOperator_treeGenerator`
 * `ConnesKreimer.AdmissibleCutData.counit_graftOperator_one`
+* `ConnesKreimer.AdmissibleCutData.counit_graftOperator_zero`
 * `ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_forestMonomial`
 * `ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_treeGenerator`
 * `ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_one`
+* `ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_zero`
 
 Current interface caveat: the three `HasRaw...` names and the three legacy
 compatibility names are `Nonempty` wrappers around Mathlib structure classes on
@@ -236,12 +238,16 @@ operator on the unit, viewed as the empty-forest monomial.  The wrapper
 that the supplied counit kills that normalized graft-operator output; the
 singleton-tree and unit cases are exposed by
 `ConnesKreimer.AdmissibleCutData.counit_graftOperator_treeGenerator` and
-`ConnesKreimer.AdmissibleCutData.counit_graftOperator_one`.  The wrapper
+`ConnesKreimer.AdmissibleCutData.counit_graftOperator_one`, with
+`ConnesKreimer.AdmissibleCutData.counit_graftOperator_zero` recording the
+literal zero case.  The wrapper
 `ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_forestMonomial`
 exposes the supplied `B_+` 1-cocycle equation on the same normalized output;
 the singleton-tree and unit cases are exposed by
 `ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_treeGenerator` and
-`ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_one`.
+`ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_one`, with
+`ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_zero` recording the
+literal zero case.
 
 ## Current Interface Blocker
 
@@ -276,9 +282,11 @@ the shape to satisfy, plus
 `ConnesKreimer.AdmissibleCutData.counit_graftOperator_forestMonomial` and
 `ConnesKreimer.AdmissibleCutData.counit_graftOperator_treeGenerator` and
 `ConnesKreimer.AdmissibleCutData.counit_graftOperator_one` and
+`ConnesKreimer.AdmissibleCutData.counit_graftOperator_zero` and
 `ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_forestMonomial` and
 `ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_treeGenerator` and
-`ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_one` as wrapper
+`ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_one` and
+`ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_zero` as wrapper
 audits.  The raw aliases remain explicitly raw; consumers that want a pinned
 admissible-cut interface should use
 `HasAdmissibleCutCoalgebraContract`, not the legacy raw alias.

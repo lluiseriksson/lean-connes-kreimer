@@ -52,6 +52,9 @@ The wrapper `AdmissibleCutData.counit_graftOperator_forestMonomial` combines
 that normalized graft-operator case with the supplied `counit_graft` field.
 The wrapper `AdmissibleCutData.coproduct_graftOperator_forestMonomial` combines
 the normalized graft-operator case with the supplied `cocycle` field.
+The zero wrappers `AdmissibleCutData.counit_graftOperator_zero` and
+`AdmissibleCutData.coproduct_graftOperator_zero` expose only the literal zero
+case for the supplied maps.
 Re-expressing the legacy contract through it remains the next Interface-Change
 decision.
 
@@ -99,6 +102,9 @@ Grafting layer (`Grafting.lean`):
   the counit-zero consequence on normalized forest monomials).
 * `AdmissibleCutData.coproduct_graftOperator_forestMonomial` (closed wrapper
   for the supplied `B_+` 1-cocycle equation on normalized forest monomials).
+* `AdmissibleCutData.counit_graftOperator_zero` and
+  `AdmissibleCutData.coproduct_graftOperator_zero` (closed zero-case wrappers
+  for the supplied counit and coproduct).
 
 ## Frontier obligations (branch `frontier/M1`, statement-first, sorried)
 

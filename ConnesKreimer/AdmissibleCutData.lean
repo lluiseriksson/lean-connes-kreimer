@@ -174,6 +174,19 @@ theorem counit_graftOperator_forestMonomial {P : GraftingProvider.{u}}
   rw [D.graftOperator_forestMonomial f]
   exact D.counit_graft f
 
+/-- The counit kills the linear graft operator on scalar multiples of
+normalized forest monomials.
+
+This is the coefficient-scaled specialization of
+`counit_graftOperator_forestMonomial`, keeping downstream scalar bookkeeping
+away from the supplied linear-map internals. -/
+@[simp]
+theorem counit_graftOperator_smul_forestMonomial {P : GraftingProvider.{u}}
+    (D : AdmissibleCutData P R) (a : R) (f : ConnesKreimer.Forest P.Tree) :
+    D.counit (D.graftOperator (a • forestMonomial R f)) = 0 := by
+  rw [D.graftOperator_smul_forestMonomial a f]
+  rw [map_smul, D.counit_graft f, smul_zero]
+
 /-- The counit kills the linear graft operator on tree generators.
 
 This is the singleton-tree-generator specialization of

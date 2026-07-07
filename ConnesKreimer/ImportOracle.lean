@@ -94,6 +94,11 @@ example (S : Type v) [CommRing S] (P : GraftingProvider.{u})
   D.counit_graftOperator_one
 
 example (S : Type v) [CommRing S] (P : GraftingProvider.{u})
+    (D : AdmissibleCutData P S) :
+    D.counit (D.graftOperator (0 : CKAlgebra S P.Tree)) = 0 :=
+  D.counit_graftOperator_zero
+
+example (S : Type v) [CommRing S] (P : GraftingProvider.{u})
     (D : AdmissibleCutData P S) (f : Forest P.Tree) :
     D.coproduct (D.graftOperator (forestMonomial S f))
       = (D.graftOperator (forestMonomial S f)) ⊗ₜ[S] 1
@@ -116,6 +121,11 @@ example (S : Type v) [CommRing S] (P : GraftingProvider.{u})
         + (TensorProduct.map LinearMap.id D.graftOperator)
             (D.coproduct (1 : CKAlgebra S P.Tree)) :=
   D.coproduct_graftOperator_one
+
+example (S : Type v) [CommRing S] (P : GraftingProvider.{u})
+    (D : AdmissibleCutData P S) :
+    D.coproduct (D.graftOperator (0 : CKAlgebra S P.Tree)) = 0 :=
+  D.coproduct_graftOperator_zero
 
 example (t : Tree) :
     treeGenerator R t = forestMonomial R (Finsupp.single t 1 : Forest Tree) :=

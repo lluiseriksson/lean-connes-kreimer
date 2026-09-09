@@ -1,5 +1,8 @@
 # lean-connes-kreimer
 
+<!-- RESEARCH-UPDATE-2026-09-09 -->
+> **Research update · 9 September 2026:** [verified source cards, limits and next experiments](research/updates/2026-09-09.md) · [machine-readable dossier](research/updates/2026-09-09.json).
+
 Lean 4 + Mathlib scaffold for the Connes-Kreimer Hopf algebra of rooted
 trees.  This is a satellite repository for the broader THE-ERIKSSON-PROGRAMME,
 but it currently has no direct import path into that repository.

@@ -1,0 +1,96 @@
+{
+  "schema_version": "1.0",
+  "reviewed_on": "2026-09-09",
+  "window": {
+    "start": "2026-09-03",
+    "end": "2026-09-09",
+    "calendar_week_start": "2026-09-07"
+  },
+  "coverage": "targeted, non-exhaustive",
+  "repository_card": {
+    "repository": "lluiseriksson/lean-connes-kreimer",
+    "source_ids": [
+      "2607.10696",
+      "2605.05542"
+    ],
+    "local_anchors": [
+      "README.md",
+      "HYPOTHESIS_FRONTIER.md",
+      "ConnesKreimer/Basic.lean"
+    ],
+    "frontier": "M0 is a commutative forest algebra; admissible-cut coproduct, coassociativity and antipode are the next algebraic obligations. No directly relevant 3-9 September source was verified.",
+    "bridge_hypothesis": "The planar LOT construction supplies an adjacent representation to audit, not a drop-in coproduct. Dictionary: ordered forests -> noncommutative words; forgetting order -> a weighted commutative image. Degree is retained; planar multiplicity and cut admissibility can be lost.",
+    "next_finite_task": "Enumerate trees through five vertices and compare ordinary cuts with left-admissible cuts. First determine the exact symmetrization weights, then test the coalgebra compatibility square on each basis element.",
+    "falsifier": "One coefficient mismatch falsifies the naive forget-order map. Do not use a planar Hopf identity as the commutative Connes-Kreimer coproduct theorem.",
+    "related_repositories": [
+      "mathlib-plane-tree-catalan",
+      "physmath-lean-lemmas"
+    ],
+    "proposal_status": "speculative; not executed or formally verified",
+    "eliminated_hypotheses": [],
+    "inspected_commit": "467bc3358981a9dabeda0ef5ec119b0c15fcf5ff"
+  },
+  "sources": [
+    {
+      "id": "arxiv:2607.10696",
+      "arxiv_id": "2607.10696",
+      "title": "The planar Hopf algebra of noncommutative multi-indices",
+      "authors": [
+        "Yu, Yong",
+        "Gao, Xing",
+        "Manchon, Dominique"
+      ],
+      "first_submitted": "2026-07-12",
+      "latest_revision": "2026-07-12",
+      "reviewed_version": "v1",
+      "url": "https://arxiv.org/abs/2607.10696v1",
+      "doi": "10.48550/arXiv.2607.10696",
+      "verified_on": "2026-09-09",
+      "recency": "background",
+      "publication_status": "preprint; peer-review status not established in this sweep",
+      "evidence_level": "literature",
+      "review_depth": "v1: abstract, Section 2 and fertility/coproduct construction",
+      "source_claim": "Yu, Gao and Manchon construct a planar noncommutative multi-index Hopf algebra, relate it to Munthe-Kaas-Wright through a fertility map, and describe left-admissible cuts and symmetrization.",
+      "limits": "Planar order and noncommutative products differ from the commutative Connes-Kreimer forest algebra. An algebraic correspondence does not supply analytic cluster convergence. First posted 12 July.",
+      "tags": [
+        "trees",
+        "hopf-algebra",
+        "planar",
+        "noncommutative"
+      ],
+      "abstract_page_sha256": "6ac70970691ff3e8fd42c48245781b35a6bb3ba15a15b2cf9fb5116213c73376",
+      "reviewed_full_text_sha256": "493e47ec5938f96e1b6d2bb9ea5ea2caf7f898ec32aca0db96869df418940507",
+      "reuse": "Bibliographic metadata and original synthesis only; no permission to train on linked full text is inferred."
+    },
+    {
+      "id": "arxiv:2605.05542",
+      "arxiv_id": "2605.05542",
+      "title": "Fertility fibres and coproduct coefficients in the LOT Hopf algebra",
+      "authors": [
+        "Zhu, Zhicheng",
+        "Li, Jingtao",
+        "Gao, Xing"
+      ],
+      "first_submitted": "2026-05-07",
+      "latest_revision": "2026-05-07",
+      "reviewed_version": "v1",
+      "url": "https://arxiv.org/abs/2605.05542v1",
+      "doi": "10.48550/arXiv.2605.05542",
+      "verified_on": "2026-09-09",
+      "recency": "background",
+      "publication_status": "preprint; peer-review status not established in this sweep",
+      "evidence_level": "literature",
+      "review_depth": "Abstract and submission history",
+      "source_claim": "Zhu, Li and Gao distinguish ordinary fertility-fibre counts, symmetry-weighted counts and coefficient masses, deriving recurrences and coproduct formulas.",
+      "limits": "These three weights are not interchangeable with the rooted child-factorial weight. Label conventions and automorphism factors need an explicit conversion. First posted 7 May.",
+      "tags": [
+        "trees",
+        "hopf-algebra",
+        "symmetry-factors"
+      ],
+      "abstract_page_sha256": "c84a68281071ad71362f9d94bfe4a6cc22e8a4d37b6c23cc00b7e0cd9f6e7b90",
+      "reviewed_full_text_sha256": null,
+      "reuse": "Bibliographic metadata and original synthesis only; no permission to train on linked full text is inferred."
+    }
+  ]
+}

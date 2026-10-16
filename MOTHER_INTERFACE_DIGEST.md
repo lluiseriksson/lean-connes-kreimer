@@ -3,13 +3,13 @@
 Last updated: 2026-07-07.
 
 Audited public HEAD for this digest:
-`45f374de4b08fda83adfd726a2bfd0f15b6c4d54`
-(`refresh digest audited head (#56)`).
+`467bc3358981a9dabeda0ef5ec119b0c15fcf5ff`
+(`refresh digest audited head (#58)`).
 
 Latest observed `main` CI for this HEAD:
 
-* Lean: success, run `28839013596`.
-* Heartbeat: success, run `28839013597`.
+* Lean: success, run `28843619233`.
+* Heartbeat: success, run `28843619236`.
 
 ## Import
 
@@ -39,12 +39,13 @@ names added through PR #41, including
 `ConnesKreimer.GraftingProvider.vertices_graft_eq_one_iff_vertexCount_zero`,
 and
 `ConnesKreimer.GraftingProvider.vertices_graft_eq_iff_vertexCount_eq`.
-It also checks the `AdmissibleCutData` wrappers added through #55, including
+It also checks the `AdmissibleCutData` wrappers, including
 `ConnesKreimer.AdmissibleCutData.graftOperator_one`,
 `ConnesKreimer.AdmissibleCutData.graftOperator_nsmul_forestMonomial`,
 `ConnesKreimer.AdmissibleCutData.graftOperator_zero`,
 `ConnesKreimer.AdmissibleCutData.counit_graftOperator_one`,
 `ConnesKreimer.AdmissibleCutData.counit_graftOperator_zero`,
+`ConnesKreimer.AdmissibleCutData.counit_graftOperator_smul_forestMonomial`,
 `ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_one`, and
 `ConnesKreimer.AdmissibleCutData.coproduct_graftOperator_zero`.
 
@@ -190,6 +191,7 @@ The following are explicit hypotheses, not proved structures:
 * `ConnesKreimer.AdmissibleCutData.graftOperator_treeGenerator`
 * `ConnesKreimer.AdmissibleCutData.graftOperator_one`
 * `ConnesKreimer.AdmissibleCutData.counit_graftOperator_forestMonomial`
+* `ConnesKreimer.AdmissibleCutData.counit_graftOperator_smul_forestMonomial`
 * `ConnesKreimer.AdmissibleCutData.counit_graftOperator_treeGenerator`
 * `ConnesKreimer.AdmissibleCutData.counit_graftOperator_one`
 * `ConnesKreimer.AdmissibleCutData.counit_graftOperator_zero`
@@ -238,6 +240,10 @@ closed singleton forest bridge.  The wrapper
 operator on the unit, viewed as the empty-forest monomial.  The wrapper
 `ConnesKreimer.AdmissibleCutData.counit_graftOperator_forestMonomial` exposes
 that the supplied counit kills that normalized graft-operator output; the
+scalar wrapper
+`ConnesKreimer.AdmissibleCutData.counit_graftOperator_smul_forestMonomial`
+exposes the same counit-zero fact for coefficient-scaled normalized forest
+monomials; the
 singleton-tree and unit cases are exposed by
 `ConnesKreimer.AdmissibleCutData.counit_graftOperator_treeGenerator` and
 `ConnesKreimer.AdmissibleCutData.counit_graftOperator_one`, with
@@ -282,6 +288,7 @@ the shape to satisfy, plus
 `ConnesKreimer.AdmissibleCutData.graftOperator_treeGenerator` and
 `ConnesKreimer.AdmissibleCutData.graftOperator_one` and
 `ConnesKreimer.AdmissibleCutData.counit_graftOperator_forestMonomial` and
+`ConnesKreimer.AdmissibleCutData.counit_graftOperator_smul_forestMonomial` and
 `ConnesKreimer.AdmissibleCutData.counit_graftOperator_treeGenerator` and
 `ConnesKreimer.AdmissibleCutData.counit_graftOperator_one` and
 `ConnesKreimer.AdmissibleCutData.counit_graftOperator_zero` and
@@ -401,7 +408,10 @@ same operator on `1 : CKAlgebra R P.Tree` to the empty-forest graft generator.
 The wrapper
 `ConnesKreimer.AdmissibleCutData.counit_graftOperator_forestMonomial` then
 rewrites the supplied counit on that graft-operator output to zero, again
-without unfolding the data fields.  The singleton-tree wrapper
+without unfolding the data fields.  The wrapper
+`ConnesKreimer.AdmissibleCutData.counit_graftOperator_smul_forestMonomial`
+gives the same counit-zero rewrite for coefficient-scaled normalized forest
+monomials.  The singleton-tree wrapper
 `ConnesKreimer.AdmissibleCutData.counit_graftOperator_treeGenerator` gives the
 same counit-zero fact directly for `treeGenerator R t`, and
 `ConnesKreimer.AdmissibleCutData.counit_graftOperator_one` gives it directly
